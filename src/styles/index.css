@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-surface text-ink font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-ink;
+  }
+
+  ::selection {
+    @apply bg-primary-100 text-primary-800;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-card bg-orange-gradient
+      px-7 py-3.5 font-heading text-sm font-semibold text-white shadow-softLg
+      transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_45px_rgba(255,122,0,0.28)]
+      active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-card border-2 border-primary-200
+      bg-white px-7 py-3.5 font-heading text-sm font-semibold text-ink
+      transition-colors duration-300 hover:border-primary hover:bg-primary-50
+      focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700;
+  }
+
+  .glass-card {
+    @apply rounded-card border border-white/60 bg-white/70 backdrop-blur-xl shadow-glass;
+  }
+
+  .section-eyebrow {
+    @apply mb-3 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5
+      text-xs font-semibold uppercase tracking-widest text-primary-600;
+  }
+
+  .card-surface {
+    @apply rounded-card border border-black/5 bg-white shadow-soft transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-orange-gradient bg-clip-text text-transparent;
+  }
+
+  .bg-blob {
+    @apply absolute rounded-full opacity-60 blur-3xl;
+  }
+}
