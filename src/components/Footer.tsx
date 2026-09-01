@@ -1,5 +1,4 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react'
-import Logo from './Logo'
 import { contactInfo, navLinks, services, socialLinks } from '../utils/siteContent'
 
 const socialIcons = {
@@ -16,10 +15,16 @@ function Footer() {
     <footer className="bg-ink text-white/70">
       <div className="container-app grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo variant="light" />
-          <p className="mt-5 text-sm leading-relaxed">
-            AI-powered legacy modernization, cloud migration and application transformation — built
-            for enterprises that can&apos;t afford downtime.
+          <p className="text-sm font-semibold text-white">
+            Wincy Software Solutions - Legacy App Modernization Company &gt;&gt; Powered by AI Agents
+          </p>
+          <p className="mt-3 text-sm leading-relaxed">
+            Wincy Software Solutions&apos; suite of AI agents accelerates application modernization by
+            approximately 50–70%. The agents assess and document legacy applications, recommend modern
+            technology stacks, transform legacy code using generative AI, automatically generate test
+            cases, and prepare applications for production deployment and ready to use. And also,
+            AI-powered legacy modernization, cloud migration and application transformation — built for
+            enterprises that can&apos;t afford downtime.
           </p>
           <div className="mt-6 flex gap-3">
             {socialLinks.map((social) => {

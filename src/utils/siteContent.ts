@@ -18,12 +18,23 @@ import {
 export interface NavLink {
   label: string
   href: string
+  children?: NavLink[]
 }
 
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
   { label: 'Projects', href: '#projects' },
+  {
+    label: 'Tech Stack',
+    href: '#',
+    children: [
+      { label: 'VB 6', href: '#' },
+      { label: 'Delphi', href: '#' },
+      { label: 'Power Builder', href: '#' },
+      { label: '.NET Framework', href: '#' },
+    ],
+  },
   { label: 'About', href: '#about' },
   { label: 'Achievements', href: '#achievements' },
   { label: 'Testimonials', href: '#testimonials' },
