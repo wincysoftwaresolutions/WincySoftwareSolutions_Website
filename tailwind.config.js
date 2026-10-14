@@ -19,20 +19,6 @@ export default {
           900: '#480829',
         },
         secondary: {
-        DEFAULT: '#E8891A',
-        },
-        surface: {
-        DEFAULT: '#FFFFFF',
-        light: '#FAF5F8',
-        },
-        ink: {
-        DEFAULT: '#1A1A1A',
-        gray: '#666666',
-        },
-        accent: {
-        DEFAULT: '#FBDCEB',
-        },
-        secondary: {
           DEFAULT: '#FFA940',
         },
         surface: {
@@ -66,6 +52,8 @@ export default {
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'float-slow': 'float 9s ease-in-out infinite',
+        'float-up': 'float-up 6s ease-in-out infinite',
+        'float-down': 'float-down 7s ease-in-out infinite',
         'blob': 'blob 12s infinite',
         'gradient-x': 'gradient-x 8s ease infinite',
       },
@@ -73,6 +61,14 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-18px)' },
+        },
+        'float-up': {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
+          '50%': { transform: 'translate3d(0, -8px, 0)' },
+        },
+        'float-down': {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
+          '50%': { transform: 'translate3d(0, 8px, 0)' },
         },
         blob: {
           '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },

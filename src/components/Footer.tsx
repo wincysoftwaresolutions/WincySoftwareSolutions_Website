@@ -16,14 +16,13 @@ function Footer() {
     <footer className="bg-ink text-white/70">
       <div className="container-app grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-  <div className="relative flex items-center gap-4 2xl:block">
-    <FooterLogo className="2xl:absolute 2xl:right-full 2xl:top-1/2 2xl:mr-5 2xl:-translate-y-1/2" />
-    <p className="text-sm font-semibold text-white">
-      Wincy Software Solutions - Legacy App Modernization Company &gt;&gt; Powered by AI Agents
-    </p>
-  </div>
-  <p className="mt-3 text-sm leading-relaxed">
-    ...
+          <div className="relative flex items-center gap-4 2xl:block">
+            <FooterLogo className="2xl:absolute 2xl:right-full 2xl:top-1/2 2xl:mr-5 2xl:-translate-y-1/2" />
+            <p className="text-sm font-semibold text-white">
+              Wincy Software Solutions - Legacy App Modernization Company &gt;&gt; Powered by AI Agents
+            </p>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed">
             Wincy Software Solutions&apos; suite of AI agents accelerates application modernization by
             approximately 50–70%. The agents assess and document legacy applications, recommend modern
             technology stacks, transform legacy code using generative AI, automatically generate test
@@ -55,13 +54,17 @@ function Footer() {
             Quick Links
           </h3>
           <ul className="mt-5 space-y-3 text-sm">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className="transition-colors hover:text-primary">
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              // Dropdown parents (e.g. "Tech Stack") use href "#", so link to their first child instead.
+              const href = link.children?.[0]?.href ?? link.href
+              return (
+                <li key={link.label}>
+                  <a href={href} className="transition-colors hover:text-primary">
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </div>
 

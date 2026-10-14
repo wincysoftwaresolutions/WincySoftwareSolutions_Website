@@ -66,13 +66,13 @@ function Mainframe() {
           </motion.span>
 
           <motion.h1
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-              custom={1}
-              className="text-gradient text-4xl font-bold leading-[1.1] sm:text-5xl lg:text-6xl"
-            >
-              Modernize Legacy Applications with AI-Powered Transformation
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            custom={1}
+            className="text-gradient text-4xl font-bold leading-[1.1] sm:text-5xl lg:text-6xl"
+          >
+            Modernize Legacy Applications with AI-Powered Transformation
           </motion.h1>
 
           <motion.div
@@ -236,46 +236,46 @@ function Mainframe() {
             </div>
           </div>
 
+          {/* Floating widget 1: AI-Powered / Real-Time Analysis */}
           <motion.div
             initial={{ opacity: 0, y: -16, x: 8 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
             transition={{ duration: 0.6, delay: 1.1, ease: 'easeOut' }}
-            className="glass-card absolute -top-2 right-2 z-20 hidden items-center gap-3 px-4 py-3 sm:-top-4 sm:right-0 sm:flex"
+            className="absolute -top-2 right-2 z-20 hidden sm:-top-4 sm:right-0 sm:block"
           >
-            <motion.span
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1.7 }}
-              className="flex items-center gap-3"
+            <div
+              className="glass-card flex animate-float-up items-center gap-3 bg-white/95 px-4 py-3 backdrop-blur-none will-change-transform motion-reduce:animate-none"
+              style={{ animationDelay: '1.7s' }}
             >
               <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary">
                 <BrainCircuit className="h-4 w-4" />
               </span>
-              <span>
+              <div>
                 <p className="text-xs text-ink-gray">AI-Powered</p>
                 <p className="font-heading text-sm font-bold text-ink">Real-Time Analysis</p>
-              </span>
-            </motion.span>
+              </div>
+            </div>
           </motion.div>
 
+          {/* Floating widget 2: Secure & Reliable / Enterprise Ready */}
           <motion.div
             initial={{ opacity: 0, y: 16, x: -8 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
             transition={{ duration: 0.6, delay: 1.7, ease: 'easeOut' }}
-            className="glass-card absolute -bottom-8 left-2 z-20 flex items-center gap-3 px-4 py-3 sm:-bottom-4 sm:left-0"
+            className="absolute -bottom-8 left-2 z-20 sm:-bottom-4 sm:left-0"
           >
-            <motion.span
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 2.3 }}
-              className="flex items-center gap-3"
+            <div
+              className="glass-card flex animate-float-down items-center gap-3 bg-white/95 px-4 py-3 backdrop-blur-none will-change-transform motion-reduce:animate-none"
+              style={{ animationDelay: '2.3s' }}
             >
               <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary">
                 <ShieldCheck className="h-6 w-6" />
               </span>
-              <span>
+              <div>
                 <p className="text-xs text-ink-gray">Secure &amp; Reliable</p>
                 <p className="font-heading text-sm font-bold text-ink">Enterprise Ready</p>
-              </span>
-            </motion.span>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
