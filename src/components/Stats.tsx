@@ -21,7 +21,7 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
         {value}
         {stat.suffix}
       </p>
-      <p className="mt-2 text-sm font-medium uppercase tracking-widest text-white/80">
+      <p className="mt-2 text-sm font-medium uppercase tracking-widest text-white">
         {stat.label}
       </p>
     </motion.div>

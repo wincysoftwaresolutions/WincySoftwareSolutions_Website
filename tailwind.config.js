@@ -26,8 +26,8 @@ export default {
           light: '#FFF8F2',
         },
         ink: {
-          DEFAULT: '#1A1A1A',
-          gray: '#666666',
+          DEFAULT: '#121212',
+          gray: '#3F3F46',
         },
         accent: {
           DEFAULT: '#FFE5CC',

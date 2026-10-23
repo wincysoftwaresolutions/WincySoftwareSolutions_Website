@@ -17,7 +17,7 @@ function CTA() {
         <h2 className="max-w-2xl text-3xl font-bold text-white sm:text-4xl">
           Ready to Modernize Your Legacy Applications?
         </h2>
-        <p className="max-w-xl text-white/90">
+        <p className="max-w-xl text-white">
           Discover how AI-powered modernization can reduce costs, improve agility, and
           accelerate digital transformation.
         </p>

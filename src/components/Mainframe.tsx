@@ -174,7 +174,7 @@ function Mainframe() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative mx-auto w-full max-w-md pb-10 pt-12 sm:pb-14 sm:pt-14 lg:max-w-lg"
+          className="relative mx-auto w-full max-w-md pb-10 pt-12 sm:pb-14 sm:pt-14 lg:mr-0 lg:max-w-lg"
         >
           <div
             className="absolute inset-x-8 top-4 h-3/4 rounded-[3rem] bg-primary-200/50 opacity-70 blur-3xl"
@@ -198,7 +198,7 @@ function Mainframe() {
               </span>
             </div>
 
-            <div className="grid grid-cols-[minmax(0,0.85fr)_1.75rem_minmax(0,1.15fr)_auto] items-center gap-2 px-5 pb-1 pt-3 font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-ink-gray/80 sm:grid-cols-[minmax(0,0.85fr)_2.5rem_minmax(0,1.15fr)_auto] sm:gap-3">
+            <div className="grid grid-cols-[minmax(0,0.85fr)_1.75rem_minmax(0,1.15fr)_auto] items-center gap-2 px-5 pb-1 pt-3 font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-ink-gray sm:grid-cols-[minmax(0,0.85fr)_2.5rem_minmax(0,1.15fr)_auto] sm:gap-3">
               <span>Legacy</span>
               <span />
               <span>Modern target</span>
@@ -227,7 +227,7 @@ function Mainframe() {
                           <LegacyIcon className="h-4 w-4" />
                         </span>
                         <span className="min-w-0">
-                          <span className="block truncate text-[13px] font-medium text-ink sm:text-sm">
+                          <span className="block text-[13px] font-medium leading-snug text-ink sm:text-sm">
                             {row.legacy}
                           </span>
                           <span className="block truncate font-mono text-[10px] text-ink-gray">

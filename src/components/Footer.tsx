@@ -13,7 +13,7 @@ function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-ink text-white/70">
+    <footer className="bg-ink text-white/85">
       <div className="container-app grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div>
           {/* Logo sits beside the heading; on 2xl it spans heading + text and is vertically centred on both */}
@@ -110,7 +110,7 @@ function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-6">
-        <div className="container-app flex flex-col items-center justify-between gap-3 text-center text-xs text-white/50 sm:flex-row sm:text-left">
+        <div className="container-app flex flex-col items-center justify-between gap-3 text-center text-xs text-white/70 sm:flex-row sm:text-left">
           <p>&copy; {year} Wincy Software Solutions. All rights reserved.</p>
           <p>Transforming Legacy Systems into Future-Ready Solutions.</p>
         </div>
