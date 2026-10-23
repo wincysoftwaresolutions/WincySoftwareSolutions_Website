@@ -14,22 +14,24 @@ function Footer() {
 
   return (
     <footer className="bg-ink text-white/70">
-      <div className="container-app grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container-app grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div>
-          <div className="relative flex items-center gap-4 2xl:block">
-            <FooterLogo className="2xl:absolute 2xl:right-full 2xl:top-1/2 2xl:mr-5 2xl:-translate-y-1/2" />
+          {/* Logo sits beside the heading; on 2xl it spans heading + text and is vertically centred on both */}
+          <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 2xl:gap-x-6">
+            <FooterLogo className="2xl:row-span-2" />
             <p className="text-sm font-semibold text-white">
-              Wincy Software Solutions - Legacy App Modernization Company &gt;&gt; Powered by AI Agents
+              VISION
+            </p>
+            <p className="col-span-2 mt-3 text-sm leading-relaxed 2xl:col-span-1 2xl:col-start-2">
+              Wincy Software Solutions delivers AI-powered legacy modernization, cloud migration, and
+              application transformation for enterprises that can&apos;t afford downtime. Our unified
+              platform uses intelligent agents to assess and document legacy applications, recommend
+              modern technology stacks, refactor or rehost code, generate tests, validate performance, and
+              prepare applications for production deployment.
             </p>
           </div>
-          <p className="mt-3 text-sm leading-relaxed">
-            Wincy Software Solutions delivers AI-powered legacy modernization, cloud migration, and
-            application transformation for enterprises that can&apos;t afford downtime. Our unified
-            platform uses intelligent agents to assess and document legacy applications, recommend
-            modern technology stacks, refactor or rehost code, generate tests, validate performance, and
-            prepare applications for production deployment.
-          </p>
-          <div className="mt-6 flex gap-3">
+          {/* 2xl: indent past the logo (178px) + gap (24px) so the icons line up with the text */}
+          <div className="mt-6 flex gap-3 2xl:ml-[202px]">
             {socialLinks.map((social) => {
               const Icon = socialIcons[social.label as keyof typeof socialIcons]
               return (

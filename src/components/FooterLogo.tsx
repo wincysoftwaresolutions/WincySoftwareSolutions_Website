@@ -10,7 +10,9 @@ function FooterLogo({ className = '' }: FooterLogoProps) {
       src={logoDark}
       alt=""
       aria-hidden="true"
-      className={`h-14 w-auto flex-shrink-0 object-contain sm:h-20 2xl:h-28 2xl:max-w-[calc((100vw_-_80rem)/2_+_0.75rem)] ${className}`}
+      // Source is a square canvas with the logo centred; crop to 2:1 and size it so the visible
+      // logo matches the banner logo (h-12 / sm:h-16 / xl:h-20 in Logo.tsx)
+      className={`aspect-[2/1] h-auto w-[107px] flex-shrink-0 object-cover sm:w-[142px] xl:w-[178px] ${className}`}
     />
   )
 }
