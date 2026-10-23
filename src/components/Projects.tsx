@@ -15,7 +15,7 @@ function Projects() {
         >
           <span className="section-eyebrow">Our Work</span>
           <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Featured Projects</h2>
-          <p className="mt-4 text-[1.05rem] leading-normal text-ink-gray">
+          <p className="mt-4 text-[1.1333rem] leading-normal text-ink-gray">
             A snapshot of the modernization engagements we&apos;ve delivered for enterprise
             clients.
           </p>
@@ -38,16 +38,16 @@ function Projects() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-primary-700 backdrop-blur">
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs-up font-semibold text-primary-700 backdrop-blur">
                   {project.category}
                 </span>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-medium leading-[1.4] text-ink">{project.title}</h3>
-                <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-gray">{project.description}</p>
+                <p className="mt-2 text-[1.0333rem] leading-relaxed text-ink-gray">{project.description}</p>
                 <a
                   href="#contact"
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary-700"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm-up font-semibold text-primary transition-colors hover:text-primary-700"
                 >
                   Read More
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

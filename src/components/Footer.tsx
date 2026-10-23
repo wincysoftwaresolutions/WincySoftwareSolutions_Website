@@ -22,7 +22,7 @@ function Footer() {
             <p className="text-sm font-semibold text-white">
               VISION
             </p>
-            <p className="col-span-2 mt-3 text-sm leading-relaxed 2xl:col-span-1 2xl:col-start-2">
+            <p className="col-span-2 mt-3 text-sm-up leading-relaxed 2xl:col-span-1 2xl:col-start-2">
               Wincy Software Solutions delivers AI-powered legacy modernization, cloud migration, and
               application transformation for enterprises that can&apos;t afford downtime. Our unified
               platform uses intelligent agents to assess and document legacy applications, recommend
@@ -54,7 +54,7 @@ function Footer() {
           <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-white">
             Quick Links
           </h3>
-          <ul className="mt-5 space-y-3 text-sm">
+          <ul className="mt-5 space-y-3 text-sm-up">
             {navLinks.map((link) => {
               // Dropdown parents (e.g. "Tech Stack") use href "#", so link to their first child instead.
               const href = link.children?.[0]?.href ?? link.href
@@ -73,7 +73,7 @@ function Footer() {
           <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-white">
             Services
           </h3>
-          <ul className="mt-5 space-y-3 text-sm">
+          <ul className="mt-5 space-y-3 text-sm-up">
             {services.slice(0, 6).map((service) => (
               <li key={service.title}>
                 <a href="#services" className="transition-colors hover:text-primary">
@@ -88,7 +88,7 @@ function Footer() {
           <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-white">
             Contact
           </h3>
-          <ul className="mt-5 space-y-4 text-sm">
+          <ul className="mt-5 space-y-4 text-sm-up">
             <li className="flex items-start gap-3">
               <MapPin className="h-4 w-4 flex-shrink-0 text-primary" />
               {contactInfo.address}
@@ -110,7 +110,7 @@ function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-6">
-        <div className="container-app flex flex-col items-center justify-between gap-3 text-center text-xs text-white/70 sm:flex-row sm:text-left">
+        <div className="container-app flex flex-col items-center justify-between gap-3 text-center text-xs-up text-white/70 sm:flex-row sm:text-left">
           <p>&copy; {year} Wincy Software Solutions. All rights reserved.</p>
           <p>Transforming Legacy Systems into Future-Ready Solutions.</p>
         </div>

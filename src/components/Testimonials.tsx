@@ -122,7 +122,7 @@ function Testimonials() {
                         ))}
                       </div>
 
-                      <p className="mt-5 text-base leading-relaxed text-ink sm:text-lg">
+                      <p className="mt-5 text-base-up leading-relaxed text-ink sm:text-lg-up">
                         “{testimonial.comment}”
                       </p>
                     </div>
@@ -136,7 +136,7 @@ function Testimonials() {
                       />
                       <div>
                         <p className="font-heading font-semibold text-ink">{testimonial.name}</p>
-                        <p className="text-sm text-ink-gray">{testimonial.designation}</p>
+                        <p className="text-sm-up text-ink-gray">{testimonial.designation}</p>
                       </div>
                     </div>
                   </div>

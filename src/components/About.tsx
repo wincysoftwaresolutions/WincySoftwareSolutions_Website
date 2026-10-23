@@ -29,8 +29,8 @@ function About() {
             />
           </div>
           <div className="glass-card absolute -bottom-6 -right-6 hidden max-w-[220px] p-5 sm:block">
-            <p className="font-heading text-3xl font-bold text-primary">5+</p>
-            <p className="text-sm text-ink-gray">Enterprise clients modernized worldwide</p>
+            <p className="font-heading text-3xl-up font-bold text-primary">5+</p>
+            <p className="text-sm-up text-ink-gray">Enterprise clients modernized worldwide</p>
           </div>
         </motion.div>
 
@@ -44,7 +44,7 @@ function About() {
           <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">
             Helping Enterprises Modernize Mission-Critical Systems
           </h2>
-          <p className="mt-5 text-[1.1rem] leading-[1.7] text-ink-gray">
+          <p className="mt-5 text-[1.1833rem] leading-[1.7] text-ink-gray">
             We help organizations unlock the value hidden inside legacy applications by
             combining artificial intelligence with deep modernization expertise. From assessment
             to transformation, we accelerate digital initiatives while minimizing risk and
@@ -72,7 +72,7 @@ function About() {
                   <h3 className="mt-3 font-heading text-[1.05rem] font-semibold text-ink">
                     {feature.title}
                   </h3>
-                  <p className="mt-1 text-[0.9rem] leading-normal text-ink-gray">{feature.description}</p>
+                  <p className="mt-1 text-[0.9833rem] leading-normal text-ink-gray">{feature.description}</p>
                 </div>
               )
             })}

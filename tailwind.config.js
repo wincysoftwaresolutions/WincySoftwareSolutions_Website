@@ -38,6 +38,18 @@ export default {
         body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
+      // Body text sizes: Tailwind defaults + 1pt (1.333px), keeping the default line-heights
+      fontSize: {
+        'xs-up': ['0.8333rem', { lineHeight: '1rem' }],
+        'sm-up': ['0.9583rem', { lineHeight: '1.25rem' }],
+        'base-up': ['1.0833rem', { lineHeight: '1.5rem' }],
+        'lg-up': ['1.2083rem', { lineHeight: '1.75rem' }],
+        'xl-up': ['1.3333rem', { lineHeight: '1.75rem' }],
+        '2xl-up': ['1.5833rem', { lineHeight: '2rem' }],
+        '3xl-up': ['1.9583rem', { lineHeight: '2.25rem' }],
+        '4xl-up': ['2.3333rem', { lineHeight: '2.5rem' }],
+        '5xl-up': ['3.0833rem', { lineHeight: '1' }],
+      },
       borderRadius: {
         card: '16px',
       },

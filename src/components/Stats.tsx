@@ -17,11 +17,11 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="text-center"
     >
-      <p className="font-heading text-4xl font-extrabold text-white sm:text-5xl">
+      <p className="font-heading text-4xl-up font-extrabold text-white sm:text-5xl-up">
         {value}
         {stat.suffix}
       </p>
-      <p className="mt-2 text-sm font-medium uppercase tracking-widest text-white">
+      <p className="mt-2 text-sm-up font-medium uppercase tracking-widest text-white">
         {stat.label}
       </p>
     </motion.div>

@@ -126,7 +126,7 @@ function Contact() {
         >
           <span className="section-eyebrow">Get In Touch</span>
           <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Let&apos;s Discuss Your Modernization Journey</h2>
-          <p className="mt-4 text-[1.05rem] leading-normal text-ink-gray">
+          <p className="mt-4 text-[1.1333rem] leading-normal text-ink-gray">
             Connect with our modernization specialists to evaluate your existing systems and
             build a transformation roadmap tailored to your business.
           </p>
@@ -147,7 +147,7 @@ function Contact() {
                 </span>
                 <div>
                   <p className="font-heading font-semibold text-ink">Address</p>
-                  <p className="mt-1 text-sm text-ink-gray">{contactInfo.address}</p>
+                  <p className="mt-1 text-sm-up text-ink-gray">{contactInfo.address}</p>
                 </div>
               </div>
 
@@ -159,7 +159,7 @@ function Contact() {
                   <p className="font-heading font-semibold text-ink">Phone</p>
                   <a
                     href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
-                    className="mt-1 block text-sm text-ink-gray hover:text-primary"
+                    className="mt-1 block text-sm-up text-ink-gray hover:text-primary"
                   >
                     {contactInfo.phone}
                   </a>
@@ -174,7 +174,7 @@ function Contact() {
                   <p className="font-heading font-semibold text-ink">Email</p>
                   <a
                     href={`mailto:${contactInfo.email}`}
-                    className="mt-1 block text-sm text-ink-gray hover:text-primary"
+                    className="mt-1 block text-sm-up text-ink-gray hover:text-primary"
                   >
                     {contactInfo.email}
                   </a>
@@ -182,7 +182,7 @@ function Contact() {
               </div>
 
               <div className="mt-auto">
-                <p className="font-heading text-sm font-semibold text-ink">Follow Us</p>
+                <p className="font-heading text-sm-up font-semibold text-ink">Follow Us</p>
                 <div className="mt-3 flex gap-3">
                   {socialLinks.map((social) => {
                     const Icon = socialIcons[social.label as keyof typeof socialIcons]
@@ -214,7 +214,7 @@ function Contact() {
             <form onSubmit={handleSubmit} className="card-surface space-y-5 p-8" noValidate>
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-ink">
+                  <label htmlFor="name" className="mb-1.5 block text-sm-up font-medium text-ink">
                     Name
                   </label>
                   <input
@@ -225,12 +225,12 @@ function Contact() {
                     required
                     value={form.name}
                     onChange={handleChange('name')}
-                    className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
+                    className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm-up text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
                     placeholder="Your full name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-ink">
+                  <label htmlFor="email" className="mb-1.5 block text-sm-up font-medium text-ink">
                     Business Email
                   </label>
                   <input
@@ -241,14 +241,14 @@ function Contact() {
                     required
                     value={form.email}
                     onChange={handleChange('email')}
-                    className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
+                    className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm-up text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
                     placeholder="you@company.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-ink">
+                <label htmlFor="phone" className="mb-1.5 block text-sm-up font-medium text-ink">
                   Phone
                 </label>
                 <input
@@ -258,13 +258,13 @@ function Contact() {
                   autoComplete="tel"
                   value={form.phone}
                   onChange={handleChange('phone')}
-                  className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
+                  className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm-up text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
                   placeholder="+91 00000 00000"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-ink">
+                <label htmlFor="message" className="mb-1.5 block text-sm-up font-medium text-ink">
                   Message
                 </label>
                 <textarea
@@ -275,7 +275,7 @@ function Contact() {
                   rows={5}
                   value={form.message}
                   onChange={handleChange('message')}
-                  className="w-full resize-none rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
+                  className="w-full resize-none rounded-xl border border-black/10 bg-white px-4 py-3 text-sm-up text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
                   placeholder="Tell us about the systems you're looking to modernize..."
                 />
               </div>
@@ -306,21 +306,21 @@ function Contact() {
               </button>
 
               {status === 'invalid' && (
-                <p role="alert" className="flex items-center gap-2 text-sm font-medium text-red-600">
+                <p role="alert" className="flex items-center gap-2 text-sm-up font-medium text-red-600">
                   <AlertCircle className="h-4 w-4" />
                   Please fill in your name, email and message.
                 </p>
               )}
 
               {status === 'badEmail' && (
-                <p role="alert" className="flex items-center gap-2 text-sm font-medium text-red-600">
+                <p role="alert" className="flex items-center gap-2 text-sm-up font-medium text-red-600">
                   <AlertCircle className="h-4 w-4" />
                   Please enter a valid email address.
                 </p>
               )}
 
               {status === 'mailFailed' && (
-                <p role="alert" className="flex items-start gap-2 text-sm font-medium text-red-600">
+                <p role="alert" className="flex items-start gap-2 text-sm-up font-medium text-red-600">
                   <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
                   <span>
                     The mail could not be sent to this address. Kindly enter a valid email id and
@@ -338,7 +338,7 @@ function Contact() {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   role="alert"
-                  className="flex items-center gap-2 text-sm font-medium text-red-600"
+                  className="flex items-center gap-2 text-sm-up font-medium text-red-600"
                 >
                   <AlertCircle className="h-4 w-4" />
                   Something went wrong — please email us directly at{' '}

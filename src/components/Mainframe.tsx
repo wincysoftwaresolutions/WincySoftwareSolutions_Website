@@ -127,7 +127,7 @@ function Mainframe() {
             animate="visible"
             variants={fadeUp}
             custom={3}
-            className="mt-5 max-w-xl text-[1.15rem] leading-relaxed text-ink-gray"
+            className="mt-5 max-w-xl text-[1.2333rem] leading-relaxed text-ink-gray"
           >
             Accelerate enterprise modernization by transforming legacy applications into
             scalable, cloud-ready, and future-proof solutions using AI-driven automation and
@@ -159,13 +159,13 @@ function Mainframe() {
             className="mt-12 flex items-center gap-8"
           >
             <div>
-              <p className="font-heading text-2xl font-bold text-ink">10+</p>
-              <p className="text-sm text-ink-gray">Applications Assessed</p>
+              <p className="font-heading text-2xl-up font-bold text-ink">10+</p>
+              <p className="text-sm-up text-ink-gray">Applications Assessed</p>
             </div>
             <div className="h-10 w-px bg-black/10" />
             <div>
-              <p className="font-heading text-2xl font-bold text-ink">5+</p>
-              <p className="text-sm text-ink-gray">Enterprise Clients</p>
+              <p className="font-heading text-2xl-up font-bold text-ink">5+</p>
+              <p className="text-sm-up text-ink-gray">Enterprise Clients</p>
             </div>
           </motion.div>
         </div>
@@ -187,8 +187,8 @@ function Mainframe() {
               <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
               <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-              <span className="ml-2 truncate font-mono text-xs text-ink-gray">modernization-pipeline</span>
-              <span className="ml-auto flex flex-shrink-0 items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[11px] font-semibold text-primary">
+              <span className="ml-2 truncate font-mono text-xs-up text-ink-gray">modernization-pipeline</span>
+              <span className="ml-auto flex flex-shrink-0 items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[12.33px] font-semibold text-primary">
                 <motion.span
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
@@ -198,7 +198,7 @@ function Mainframe() {
               </span>
             </div>
 
-            <div className="grid grid-cols-[minmax(0,0.85fr)_1.75rem_minmax(0,1.15fr)_auto] items-center gap-2 px-5 pb-1 pt-3 font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-ink-gray sm:grid-cols-[minmax(0,0.85fr)_2.5rem_minmax(0,1.15fr)_auto] sm:gap-3">
+            <div className="grid grid-cols-[minmax(0,0.85fr)_1.75rem_minmax(0,1.15fr)_auto] items-center gap-2 px-5 pb-1 pt-3 font-mono text-[11.33px] font-medium uppercase tracking-[0.08em] text-ink-gray sm:grid-cols-[minmax(0,0.85fr)_2.5rem_minmax(0,1.15fr)_auto] sm:gap-3">
               <span>Legacy</span>
               <span />
               <span>Modern target</span>
@@ -227,10 +227,10 @@ function Mainframe() {
                           <LegacyIcon className="h-4 w-4" />
                         </span>
                         <span className="min-w-0">
-                          <span className="block text-[13px] font-medium leading-snug text-ink sm:text-sm">
+                          <span className="block text-[14.33px] font-medium leading-snug text-ink sm:text-sm-up">
                             {row.legacy}
                           </span>
-                          <span className="block truncate font-mono text-[10px] text-ink-gray">
+                          <span className="block truncate font-mono text-[11.33px] text-ink-gray">
                             {row.legacyNote}
                           </span>
                         </span>
@@ -264,21 +264,21 @@ function Mainframe() {
 
                       <span className="min-w-0">
                         <span
-                          className={`block text-[13px] font-semibold leading-snug sm:text-sm ${
+                          className={`block text-[14.33px] font-semibold leading-snug sm:text-sm-up ${
                             row.state === 'queued' ? 'text-ink-gray' : 'text-gradient'
                           }`}
                         >
                           {row.target}
                         </span>
                         {row.targetNote && (
-                          <span className="block truncate font-mono text-[10px] text-ink-gray">
+                          <span className="block truncate font-mono text-[11.33px] text-ink-gray">
                             {row.targetNote}
                           </span>
                         )}
                       </span>
 
                       <span
-                        className={`inline-flex items-center gap-1 justify-self-end rounded-full px-1.5 py-1 text-[10px] font-semibold sm:px-2 ${status.className}`}
+                        className={`inline-flex items-center gap-1 justify-self-end rounded-full px-1.5 py-1 text-[11.33px] font-semibold sm:px-2 ${status.className}`}
                         title={status.label}
                       >
                         <StatusIcon
@@ -315,7 +315,7 @@ function Mainframe() {
                         )}
                         {step.state === 'pending' && <Circle className="h-3 w-3" />}
                       </span>
-                      <span className="text-[10px] font-medium text-ink-gray">{step.label}</span>
+                      <span className="text-[11.33px] font-medium text-ink-gray">{step.label}</span>
                     </div>
                     {index < processSteps.length - 1 && (
                       <span className="mx-1 mb-4 h-px flex-1 bg-black/10" />
@@ -325,7 +325,7 @@ function Mainframe() {
               </div>
 
               <div className="mt-4">
-                <div className="mb-1.5 flex items-center justify-between text-xs">
+                <div className="mb-1.5 flex items-center justify-between text-xs-up">
                   <span className="font-medium text-ink-gray">Modernization Readiness</span>
                   <span className="font-heading font-bold text-primary">84%</span>
                 </div>
@@ -356,8 +356,8 @@ function Mainframe() {
                 <WandSparkles className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-xs text-ink-gray">AI-Assisted</p>
-                <p className="font-heading text-sm font-bold text-ink">Code Transformation</p>
+                <p className="text-xs-up text-ink-gray">AI-Assisted</p>
+                <p className="font-heading text-sm-up font-bold text-ink">Code Transformation</p>
               </div>
             </div>
           </motion.div>
@@ -377,8 +377,8 @@ function Mainframe() {
                 <ShieldCheck className="h-6 w-6" />
               </span>
               <div>
-                <p className="text-xs text-ink-gray">Business Logic</p>
-                <p className="font-heading text-sm font-bold text-ink">100% Preserved</p>
+                <p className="text-xs-up text-ink-gray">Business Logic</p>
+                <p className="font-heading text-sm-up font-bold text-ink">100% Preserved</p>
               </div>
             </div>
           </motion.div>

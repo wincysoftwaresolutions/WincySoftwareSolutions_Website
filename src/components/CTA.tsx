@@ -23,7 +23,7 @@ function CTA() {
         </p>
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 rounded-card bg-white px-8 py-3.5 font-body text-[0.9rem] font-medium text-primary-700 shadow-softLg transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
+          className="inline-flex items-center gap-2 rounded-card bg-white px-8 py-3.5 font-body text-[0.9833rem] font-medium text-primary-700 shadow-softLg transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
         >
           Book a Consultation
           <ArrowRight className="h-4 w-4" />

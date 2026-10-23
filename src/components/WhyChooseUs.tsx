@@ -34,7 +34,7 @@ function WhyChooseUs() {
                 </span>
                 <div>
                   <h3 className="font-heading text-[1.05rem] font-semibold text-ink">{item.title}</h3>
-                  <p className="mt-1 text-[0.9rem] leading-normal text-ink-gray">{item.description}</p>
+                  <p className="mt-1 text-[0.9833rem] leading-normal text-ink-gray">{item.description}</p>
                 </div>
               </motion.div>
             )

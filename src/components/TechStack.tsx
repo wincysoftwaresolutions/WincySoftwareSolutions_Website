@@ -24,7 +24,7 @@ function TechStack() {
               >
                 <span className="section-eyebrow">Tech Stack</span>
                 <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">{tech.title}</h2>
-                <p className="mt-5 text-[1.1rem] leading-[1.7] text-ink-gray">{tech.description}</p>
+                <p className="mt-5 text-[1.1833rem] leading-[1.7] text-ink-gray">{tech.description}</p>
 
                 <ul className="mt-6 space-y-3">
                   {tech.points.map((point) => (
@@ -48,7 +48,7 @@ function TechStack() {
                     <Icon className="h-8 w-8" />
                   </span>
                   <h3 className="mt-6 text-2xl font-bold text-ink">{tech.label}</h3>
-                  <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-primary-600">
+                  <p className="mt-5 text-xs-up font-semibold uppercase tracking-widest text-primary-600">
                     Modernized to
                   </p>
                   <p className="mt-1 text-ink-gray">{tech.target}</p>

@@ -119,7 +119,7 @@ function Navbar() {
           <li key={link.label} className="relative">
             <button
               type="button"
-              className={`group flex items-center gap-1 whitespace-nowrap rounded-full px-4 py-2 text-[0.95rem] font-medium ${
+              className={`group flex items-center gap-1 whitespace-nowrap rounded-full px-4 py-2 text-[1.0333rem] font-medium ${
                 openDropdown === link.label ? 'text-primary' : 'text-ink-gray'
               }`}
               aria-haspopup="true"
@@ -150,7 +150,7 @@ function Navbar() {
                       <a
                         href={child.href}
                         onClick={() => setOpenDropdown(null)}
-                        className="group block px-4 py-2 text-sm font-medium text-ink-gray transition-colors hover:bg-primary-50"
+                        className="group block px-4 py-2 text-sm-up font-medium text-ink-gray transition-colors hover:bg-primary-50"
                       >
                         <span className="group-hover:bg-orange-gradient group-hover:bg-clip-text group-hover:text-transparent">
                           {child.label}
@@ -166,7 +166,7 @@ function Navbar() {
           <li key={link.href}>
             <a
               href={link.href}
-              className={`group relative whitespace-nowrap rounded-full px-4 py-2 text-[0.95rem] font-medium ${
+              className={`group relative whitespace-nowrap rounded-full px-4 py-2 text-[1.0333rem] font-medium ${
                 activeHref === link.href ? 'text-primary' : 'text-ink-gray'
               }`}
               aria-current={activeHref === link.href ? 'page' : undefined}
@@ -220,7 +220,7 @@ function Navbar() {
                       onClick={() =>
                         setOpenMobileDropdown((prev) => (prev === link.label ? null : link.label))
                       }
-                      className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                      className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-base-up font-medium transition-colors ${
                         openMobileDropdown === link.label
                           ? 'bg-primary-50 text-primary'
                           : 'text-ink-gray hover:bg-primary-50 hover:text-primary'
@@ -247,7 +247,7 @@ function Navbar() {
                               <a
                                 href={child.href}
                                 onClick={closeMenuAndNavigate(child.href)}
-                                className="block rounded-xl px-4 py-2.5 text-sm font-medium text-ink-gray transition-colors hover:bg-primary-50 hover:text-primary"
+                                className="block rounded-xl px-4 py-2.5 text-sm-up font-medium text-ink-gray transition-colors hover:bg-primary-50 hover:text-primary"
                               >
                                 {child.label}
                               </a>
@@ -262,7 +262,7 @@ function Navbar() {
                     <a
                       href={link.href}
                       onClick={closeMenuAndNavigate(link.href)}
-                      className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                      className={`block rounded-xl px-4 py-3 text-base-up font-medium transition-colors ${
                         activeHref === link.href
                           ? 'bg-primary-50 text-primary'
                           : 'text-ink-gray hover:bg-primary-50 hover:text-primary'
