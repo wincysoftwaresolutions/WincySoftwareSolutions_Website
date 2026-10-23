@@ -23,12 +23,11 @@ function Footer() {
             </p>
           </div>
           <p className="mt-3 text-sm leading-relaxed">
-            Wincy Software Solutions&apos; suite of AI agents accelerates application modernization by
-            approximately 50–70%. The agents assess and document legacy applications, recommend modern
-            technology stacks, transform legacy code using generative AI, automatically generate test
-            cases, and prepare applications for production deployment and ready to use. And also,
-            AI-powered legacy modernization, cloud migration and application transformation — built for
-            enterprises that can&apos;t afford downtime.
+            Wincy Software Solutions delivers AI-powered legacy modernization, cloud migration, and
+            application transformation for enterprises that can&apos;t afford downtime. Our unified
+            platform uses intelligent agents to assess and document legacy applications, recommend
+            modern technology stacks, refactor or rehost code, generate tests, validate performance, and
+            prepare applications for production deployment.
           </p>
           <div className="mt-6 flex gap-3">
             {socialLinks.map((social) => {
