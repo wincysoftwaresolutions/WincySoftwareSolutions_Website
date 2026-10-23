@@ -1,23 +1,55 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, Layers, BrainCircuit, ShieldCheck, CheckCircle2, Circle, Wand2 } from 'lucide-react'
+import { motion, useReducedMotion } from 'framer-motion'
+import {
+  ArrowRight,
+  Layers,
+  BrainCircuit,
+  ShieldCheck,
+  CheckCircle2,
+  Circle,
+  Wand2,
+  WandSparkles,
+  Check,
+  Loader2,
+  ScanSearch,
+  Clock3,
+  type LucideIcon,
+} from 'lucide-react'
+import { techStack } from '../utils/techStackData'
 
-interface RiskModule {
-  name: string
-  grade: string
-  status: string
-  color: string
+type PipelineState = 'done' | 'active' | 'analyzing' | 'queued'
+
+interface PipelineRow {
+  id: string
+  legacy: string
+  legacyNote: string
+  target: string
+  targetNote?: string
+  state: PipelineState
 }
 
-const riskModules: RiskModule[] = [
-  { name: 'Core Billing Engine', grade: 'D', status: 'Critical Risk', color: '#EF4444' },
-  { name: 'Auth & Session Mgmt', grade: 'C', status: 'Needs Refactor', color: '#F59E0B' },
-  { name: 'Reporting Module', grade: 'B', status: 'In Progress', color: '#D61F7F' },
-  { name: 'API Gateway', grade: 'A', status: 'Modernized', color: '#22C55E' },
+// One row per Tech Stack section; each row links to its section below
+const pipeline: PipelineRow[] = [
+  { id: 'vb6', legacy: 'VB6', legacyNote: 'COM · Desktop', target: 'React + .NET 10', targetNote: 'Azure Cloud', state: 'done' },
+  { id: 'delphi', legacy: 'Delphi', legacyNote: 'VCL · Desktop', target: 'React + Modern .NET', targetNote: 'Azure Cloud', state: 'done' },
+  { id: 'powerbuilder', legacy: 'PowerBuilder', legacyNote: 'DataWindow', target: 'React + .NET 10', targetNote: 'REST APIs', state: 'active' },
+  { id: 'windows-to-web', legacy: 'Windows App', legacyNote: 'WinForms · WPF', target: 'React Web App', targetNote: 'Cloud Native', state: 'analyzing' },
+  { id: 'dotnet', legacy: '.NET Framework', legacyNote: 'v4.x', target: '.NET 10', state: 'queued' },
 ]
+
+const iconById: Record<string, LucideIcon> = Object.fromEntries(
+  techStack.map((tech) => [tech.id, tech.icon]),
+)
+
+const statusStyles: Record<PipelineState, { label: string; icon: LucideIcon; className: string }> = {
+  done: { label: 'Migrated', icon: Check, className: 'bg-green-50 text-green-600' },
+  active: { label: 'Transforming', icon: Loader2, className: 'bg-primary-50 text-primary' },
+  analyzing: { label: 'Analyzing', icon: ScanSearch, className: 'bg-amber-50 text-amber-600' },
+  queued: { label: 'Queued', icon: Clock3, className: 'bg-black/5 text-ink-gray' },
+}
 
 const processSteps = [
   { label: 'Assess', state: 'done' as const },
-  { label: 'Refactor', state: 'done' as const },
+  { label: 'Transform', state: 'done' as const },
   { label: 'Migrate', state: 'active' as const },
   { label: 'Validate', state: 'pending' as const },
 ]
@@ -32,6 +64,8 @@ const fadeUp = {
 }
 
 function Mainframe() {
+  const reduceMotion = useReducedMotion()
+
   return (
     <section
       id="home"
@@ -147,45 +181,116 @@ function Mainframe() {
             aria-hidden="true"
           />
 
-          {/* Legacy code assessment mockup — makes the modernization process tangible */}
+          {/* Modernization pipeline mockup: each supported tech stack moving from legacy to modern */}
           <div className="card-surface relative z-10 overflow-hidden shadow-softLg">
             <div className="flex items-center gap-2 border-b border-black/5 bg-surface-light px-5 py-3">
               <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
               <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-              <span className="ml-2 font-mono text-xs text-ink-gray">legacy-assessment.ai</span>
-              <span className="ml-auto flex items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[11px] font-semibold text-primary">
+              <span className="ml-2 truncate font-mono text-xs text-ink-gray">modernization-pipeline</span>
+              <span className="ml-auto flex flex-shrink-0 items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[11px] font-semibold text-primary">
                 <motion.span
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
                   className="h-1.5 w-1.5 rounded-full bg-primary"
                 />
-                Live Scan
+                AI Transform
               </span>
             </div>
 
-            <div className="divide-y divide-black/5 px-5">
-              {riskModules.map((module, index) => (
-                <motion.div
-                  key={module.name}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.6 + index * 0.12 }}
-                  className="flex items-center justify-between py-3"
-                >
-                  <div>
-                    <p className="text-sm font-medium text-ink">{module.name}</p>
-                    <p className="text-xs text-ink-gray">{module.status}</p>
-                  </div>
-                  <span
-                    className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
-                    style={{ backgroundColor: module.color }}
-                  >
-                    {module.grade}
-                  </span>
-                </motion.div>
-              ))}
+            <div className="grid grid-cols-[minmax(0,0.85fr)_1.75rem_minmax(0,1.15fr)_auto] items-center gap-2 px-5 pb-1 pt-3 font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-ink-gray/80 sm:grid-cols-[minmax(0,0.85fr)_2.5rem_minmax(0,1.15fr)_auto] sm:gap-3">
+              <span>Legacy</span>
+              <span />
+              <span>Modern target</span>
+              <span className="text-right">Status</span>
             </div>
+
+            <ul className="px-3 pb-2">
+              {pipeline.map((row, index) => {
+                const LegacyIcon = iconById[row.id] ?? Layers
+                const status = statusStyles[row.state]
+                const StatusIcon = status.icon
+
+                return (
+                  <motion.li
+                    key={row.id}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                  >
+                    <a
+                      href={`#${row.id}`}
+                      className="grid grid-cols-[minmax(0,0.85fr)_1.75rem_minmax(0,1.15fr)_auto] items-center gap-2 rounded-xl px-2 py-2.5 transition-colors hover:bg-primary-50/60 sm:grid-cols-[minmax(0,0.85fr)_2.5rem_minmax(0,1.15fr)_auto] sm:gap-3"
+                    >
+                      <span className="flex min-w-0 items-center gap-2.5">
+                        <span className="hidden h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-black/5 text-ink-gray sm:flex">
+                          <LegacyIcon className="h-4 w-4" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block truncate text-[13px] font-medium text-ink sm:text-sm">
+                            {row.legacy}
+                          </span>
+                          <span className="block truncate font-mono text-[10px] text-ink-gray">
+                            {row.legacyNote}
+                          </span>
+                        </span>
+                      </span>
+
+                      {/* Flow line: solid when migrated, animated while in flight, dashed when queued */}
+                      <span className="relative flex h-4 items-center" aria-hidden="true">
+                        {row.state === 'queued' ? (
+                          <span className="w-full border-t border-dashed border-black/15" />
+                        ) : (
+                          <span
+                            className={`h-0.5 w-full rounded-full ${
+                              row.state === 'done' ? 'bg-orange-gradient' : 'bg-black/10'
+                            }`}
+                          />
+                        )}
+                        {(row.state === 'active' || row.state === 'analyzing') && !reduceMotion && (
+                          <motion.span
+                            className="absolute h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(214,31,127,0.6)]"
+                            initial={{ left: '0%', opacity: 0 }}
+                            animate={{ left: ['0%', '90%'], opacity: [0, 1, 1, 0] }}
+                            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut', delay: index * 0.3 }}
+                          />
+                        )}
+                        <ArrowRight
+                          className={`absolute -right-1 h-3 w-3 ${
+                            row.state === 'done' ? 'text-primary' : 'text-black/20'
+                          }`}
+                        />
+                      </span>
+
+                      <span className="min-w-0">
+                        <span
+                          className={`block text-[13px] font-semibold leading-snug sm:text-sm ${
+                            row.state === 'queued' ? 'text-ink-gray' : 'text-gradient'
+                          }`}
+                        >
+                          {row.target}
+                        </span>
+                        {row.targetNote && (
+                          <span className="block truncate font-mono text-[10px] text-ink-gray">
+                            {row.targetNote}
+                          </span>
+                        )}
+                      </span>
+
+                      <span
+                        className={`inline-flex items-center gap-1 justify-self-end rounded-full px-1.5 py-1 text-[10px] font-semibold sm:px-2 ${status.className}`}
+                        title={status.label}
+                      >
+                        <StatusIcon
+                          className={`h-3 w-3 ${row.state === 'active' && !reduceMotion ? 'animate-spin' : ''}`}
+                        />
+                        <span className="sr-only sm:not-sr-only">{status.label}</span>
+                      </span>
+                    </a>
+                  </motion.li>
+                )
+              })}
+            </ul>
 
             <div className="border-t border-black/5 bg-surface-light px-5 py-4">
               <div className="flex items-center justify-between">
@@ -236,7 +341,7 @@ function Mainframe() {
             </div>
           </div>
 
-          {/* Floating widget 1: AI-Powered / Real-Time Analysis */}
+          {/* Floating widget 1: AI-Assisted / Code Transformation */}
           <motion.div
             initial={{ opacity: 0, y: -16, x: 8 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
@@ -248,16 +353,16 @@ function Mainframe() {
               style={{ animationDelay: '1.7s' }}
             >
               <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary">
-                <BrainCircuit className="h-4 w-4" />
+                <WandSparkles className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-xs text-ink-gray">AI-Powered</p>
-                <p className="font-heading text-sm font-bold text-ink">Real-Time Analysis</p>
+                <p className="text-xs text-ink-gray">AI-Assisted</p>
+                <p className="font-heading text-sm font-bold text-ink">Code Transformation</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Floating widget 2: Secure & Reliable / Enterprise Ready */}
+          {/* Floating widget 2: Business Logic / 100% Preserved */}
           <motion.div
             initial={{ opacity: 0, y: 16, x: -8 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
@@ -272,8 +377,8 @@ function Mainframe() {
                 <ShieldCheck className="h-6 w-6" />
               </span>
               <div>
-                <p className="text-xs text-ink-gray">Secure &amp; Reliable</p>
-                <p className="font-heading text-sm font-bold text-ink">Enterprise Ready</p>
+                <p className="text-xs text-ink-gray">Business Logic</p>
+                <p className="font-heading text-sm font-bold text-ink">100% Preserved</p>
               </div>
             </div>
           </motion.div>
