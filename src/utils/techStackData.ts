@@ -1,4 +1,4 @@
-import { Code, Database, Layers, Server, type LucideIcon } from 'lucide-react'
+import { AppWindow, Code, Database, Layers, Server, type LucideIcon } from 'lucide-react'
 
 export interface TechStackItem {
   id: string
@@ -13,11 +13,11 @@ export interface TechStackItem {
 export const techStack: TechStackItem[] = [
   {
     id: 'vb6',
-    label: 'VB 6',
+    label: 'VB6',
     icon: Code,
     title: 'Visual Basic 6 Modernization',
     description:
-      'VB 6 applications are out of mainstream support yet still run critical business processes. We migrate them to modern, supported platforms without losing the business logic built up over the years.',
+      'VB6 applications are out of mainstream support yet still run critical business processes. We migrate them to modern, supported platforms without losing the business logic built up over the years.',
     points: [
       'Automated code analysis and business-rule extraction',
       'Forms, COM components and data access converted to modern equivalents',
@@ -52,6 +52,20 @@ export const techStack: TechStackItem[] = [
       'Database-backed services exposed through secure APIs',
     ],
     target: '.NET, React front ends and cloud databases',
+  },
+  {
+    id: 'windows-to-web',
+    label: 'Windows App to Web App',
+    icon: AppWindow,
+    title: 'Windows App to Web App Migration',
+    description:
+      'Desktop Windows applications tie users to installed machines and make updates slow to roll out. We convert them into secure, browser-based web applications that run anywhere and deploy centrally.',
+    points: [
+      'WinForms and WPF screens mapped to responsive web interfaces',
+      'Business logic moved into reusable services and APIs',
+      'Centralized deployment with no client installs to manage',
+    ],
+    target: 'Modern web apps, REST APIs and cloud hosting',
   },
   {
     id: 'dotnet',

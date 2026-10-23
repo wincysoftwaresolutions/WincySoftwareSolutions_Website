@@ -34,8 +34,9 @@ export default {
         },
       },
       fontFamily: {
-        heading: ['Poppins', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Hanken Grotesk', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+        body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       borderRadius: {
         card: '16px',
@@ -83,4 +84,4 @@ export default {
     },
   },
   plugins: [],
-}
+}

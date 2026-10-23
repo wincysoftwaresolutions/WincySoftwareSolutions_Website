@@ -13,8 +13,8 @@ function Services() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="section-eyebrow">What We Do</span>
-          <h2 className="text-3xl font-bold sm:text-4xl">Our Services</h2>
-          <p className="mt-4 text-lg text-ink-gray">
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Our Services</h2>
+          <p className="mt-4 text-[1.05rem] leading-normal text-ink-gray">
             End-to-end modernization services that take legacy systems from assessment to
             cloud-ready transformation.
           </p>
@@ -36,8 +36,8 @@ function Services() {
                 <span className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-50 text-primary transition-colors duration-300 group-hover:bg-orange-gradient group-hover:text-white">
                   <Icon className="h-7 w-7" strokeWidth={2} />
                 </span>
-                <h3 className="text-xl font-semibold text-ink">{service.title}</h3>
-                <p className="mt-3 text-ink-gray">{service.description}</p>
+                <h3 className="text-2xl font-medium leading-[1.4] text-ink">{service.title}</h3>
+                <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-gray">{service.description}</p>
               </motion.div>
             )
           })}

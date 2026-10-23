@@ -14,8 +14,8 @@ function Projects() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="section-eyebrow">Our Work</span>
-          <h2 className="text-3xl font-bold sm:text-4xl">Featured Projects</h2>
-          <p className="mt-4 text-lg text-ink-gray">
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Featured Projects</h2>
+          <p className="mt-4 text-[1.05rem] leading-normal text-ink-gray">
             A snapshot of the modernization engagements we&apos;ve delivered for enterprise
             clients.
           </p>
@@ -43,8 +43,8 @@ function Projects() {
                 </span>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-ink">{project.title}</h3>
-                <p className="mt-2 text-sm text-ink-gray">{project.description}</p>
+                <h3 className="text-xl font-medium leading-[1.4] text-ink">{project.title}</h3>
+                <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-gray">{project.description}</p>
                 <a
                   href="#contact"
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary-700"

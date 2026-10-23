@@ -50,7 +50,7 @@ function Testimonials() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="section-eyebrow">Testimonials</span>
-          <h2 className="text-3xl font-bold sm:text-4xl">What Our Clients Say</h2>
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">What Our Clients Say</h2>
         </motion.div>
 
         <div

@@ -23,8 +23,8 @@ function TechStack() {
                 className={reversed ? 'lg:order-2' : ''}
               >
                 <span className="section-eyebrow">Tech Stack</span>
-                <h2 className="text-3xl font-bold sm:text-4xl">{tech.title}</h2>
-                <p className="mt-5 text-lg text-ink-gray">{tech.description}</p>
+                <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">{tech.title}</h2>
+                <p className="mt-5 text-[1.1rem] leading-[1.7] text-ink-gray">{tech.description}</p>
 
                 <ul className="mt-6 space-y-3">
                   {tech.points.map((point) => (

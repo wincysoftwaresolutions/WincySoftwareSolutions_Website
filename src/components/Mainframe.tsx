@@ -70,7 +70,7 @@ function Mainframe() {
             animate="visible"
             variants={fadeUp}
             custom={1}
-            className="text-gradient text-4xl font-bold leading-[1.1] sm:text-5xl lg:text-6xl"
+            className="text-gradient text-4xl font-bold leading-[1.1] md:text-5xl lg:text-6xl"
           >
             Modernize Legacy Applications with AI-Powered Transformation
           </motion.h1>
@@ -93,7 +93,7 @@ function Mainframe() {
             animate="visible"
             variants={fadeUp}
             custom={3}
-            className="mt-5 max-w-xl text-lg text-ink-gray"
+            className="mt-5 max-w-xl text-[1.15rem] leading-relaxed text-ink-gray"
           >
             Accelerate enterprise modernization by transforming legacy applications into
             scalable, cloud-ready, and future-proof solutions using AI-driven automation and
@@ -125,12 +125,12 @@ function Mainframe() {
             className="mt-12 flex items-center gap-8"
           >
             <div>
-              <p className="font-heading text-2xl font-bold text-ink">500+</p>
+              <p className="font-heading text-2xl font-bold text-ink">10+</p>
               <p className="text-sm text-ink-gray">Applications Assessed</p>
             </div>
             <div className="h-10 w-px bg-black/10" />
             <div>
-              <p className="font-heading text-2xl font-bold text-ink">40+</p>
+              <p className="font-heading text-2xl font-bold text-ink">5+</p>
               <p className="text-sm text-ink-gray">Enterprise Clients</p>
             </div>
           </motion.div>

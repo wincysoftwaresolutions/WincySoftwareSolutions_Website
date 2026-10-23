@@ -13,7 +13,7 @@ function WhyChooseUs() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="section-eyebrow">Why Choose Us</span>
-          <h2 className="text-3xl font-bold sm:text-4xl">Reasons Enterprises Trust Us</h2>
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Reasons Enterprises Trust Us</h2>
         </motion.div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -33,8 +33,8 @@ function WhyChooseUs() {
                   <Icon className="h-6 w-6" />
                 </span>
                 <div>
-                  <h3 className="font-heading text-base font-semibold text-ink">{item.title}</h3>
-                  <p className="mt-1 text-sm text-ink-gray">{item.description}</p>
+                  <h3 className="font-heading text-[1.05rem] font-semibold text-ink">{item.title}</h3>
+                  <p className="mt-1 text-[0.9rem] leading-normal text-ink-gray">{item.description}</p>
                 </div>
               </motion.div>
             )

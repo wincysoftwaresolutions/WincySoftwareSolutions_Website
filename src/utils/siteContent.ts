@@ -12,9 +12,6 @@ import {
   Rocket,
   Wallet,
   Layers,
-  Code,
-  Database,
-  Server,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -116,9 +113,9 @@ export interface StatItem {
 }
 
 export const stats: StatItem[] = [
-  { value: 1, suffix: '+', label: 'Applications Assessed' },
+  { value: 10, suffix: '+', label: 'Applications Assessed' },
   { value: 1, suffix: '+', label: 'Modernization Projects' },
-  { value: 2, suffix: '+', label: 'Enterprise Clients' },
+  { value: 5, suffix: '+', label: 'Enterprise Clients' },
   { value: 100, suffix: '%', label: 'Customer Satisfaction' },
 ]
 
