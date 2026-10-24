@@ -11,7 +11,7 @@ const highlights = [
 function About() {
   return (
     <section id="about" className="section-padding bg-surface-light">
-      <div className="container-app grid items-center gap-16 lg:grid-cols-2">
+      <div className="container-app grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}

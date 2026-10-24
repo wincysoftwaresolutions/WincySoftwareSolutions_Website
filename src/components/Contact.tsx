@@ -132,7 +132,7 @@ function Contact() {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-5">
+        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-5">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -170,11 +170,11 @@ function Contact() {
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-primary">
                   <Mail className="h-5 w-5" />
                 </span>
-                <div>
+                <div className="min-w-0">
                   <p className="font-heading font-semibold text-ink">Email</p>
                   <a
                     href={`mailto:${contactInfo.email}`}
-                    className="mt-1 block text-sm-up text-ink-gray hover:text-primary"
+                    className="mt-1 block text-sm-up text-ink-gray [overflow-wrap:anywhere] hover:text-primary"
                   >
                     {contactInfo.email}
                   </a>

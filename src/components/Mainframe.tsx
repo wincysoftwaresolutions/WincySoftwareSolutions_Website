@@ -86,7 +86,7 @@ function Mainframe() {
         aria-hidden="true"
       />
 
-      <div className="container-app relative grid items-center gap-16 lg:grid-cols-2">
+      <div className="container-app relative grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
         <div>
           <motion.span
             initial="hidden"
@@ -187,7 +187,7 @@ function Mainframe() {
               <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
               <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-              <span className="ml-2 truncate font-mono text-xs-up text-ink-gray">modernization-pipeline</span>
+              <span className="ml-2 min-w-0 truncate font-mono text-xs-up text-ink-gray">modernization-pipeline</span>
               <span className="ml-auto flex flex-shrink-0 items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[12.33px] font-semibold text-primary">
                 <motion.span
                   animate={{ opacity: [1, 0.3, 1] }}

@@ -14,7 +14,7 @@ function TechStack() {
             id={tech.id}
             className={`py-14 sm:py-16 lg:py-20 ${index % 2 === 0 ? 'bg-surface' : 'bg-surface-light'}`}
           >
-            <div className="container-app grid items-center gap-12 lg:grid-cols-2">
+            <div className="container-app grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
               <motion.div
                 initial={{ opacity: 0, x: reversed ? 40 : -40 }}
                 whileInView={{ opacity: 1, x: 0 }}

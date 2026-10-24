@@ -101,7 +101,7 @@ function Footer() {
             </li>
             <li className="flex items-start gap-3">
               <Mail className="h-4 w-4 flex-shrink-0 text-primary" />
-              <a href={`mailto:${contactInfo.email}`} className="hover:text-primary">
+              <a href={`mailto:${contactInfo.email}`} className="min-w-0 [overflow-wrap:anywhere] hover:text-primary">
                 {contactInfo.email}
               </a>
             </li>
