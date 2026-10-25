@@ -13,7 +13,7 @@ function Services() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="section-eyebrow">What We Do</span>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Our Services</h2>
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Our <span className="text-gradient">Services</span></h2>
           <p className="mt-4 text-[1.1333rem] leading-normal text-ink-gray">
             End-to-end modernization services that take legacy systems from assessment to
             cloud-ready transformation.

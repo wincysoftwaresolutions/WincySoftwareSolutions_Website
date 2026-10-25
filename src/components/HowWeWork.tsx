@@ -36,7 +36,7 @@ function HowWeWork() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="section-eyebrow">Our Process</span>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">How We Work</h2>
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">How We <span className="text-gradient">Work</span></h2>
           <motion.span
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}

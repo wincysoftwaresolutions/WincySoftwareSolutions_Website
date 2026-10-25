@@ -15,7 +15,7 @@ function Projects() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="section-eyebrow">Our Work</span>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Featured Projects</h2>
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Featured <span className="text-gradient">Projects</span></h2>
           <p className="mt-4 text-[1.1333rem] leading-normal text-ink-gray">
             How we take each legacy stack from assessment to a modern, cloud-ready application on
             Azure.

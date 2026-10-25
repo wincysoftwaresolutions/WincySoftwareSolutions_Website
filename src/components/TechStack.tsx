@@ -23,7 +23,11 @@ function TechStack() {
                 className={reversed ? 'lg:order-2' : ''}
               >
                 <span className="section-eyebrow">Tech Stack</span>
-                <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">{tech.title}</h2>
+                <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">
+                  {/* Highlight the final word of each title with the brand gradient */}
+                  {tech.title.slice(0, tech.title.lastIndexOf(' ') + 1)}
+                  <span className="text-gradient">{tech.title.slice(tech.title.lastIndexOf(' ') + 1)}</span>
+                </h2>
                 <p className="mt-5 text-[1.1833rem] leading-[1.7] text-ink-gray">{tech.description}</p>
 
                 <ul className="mt-6 space-y-3">

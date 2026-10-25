@@ -13,7 +13,7 @@ function WhyChooseUs() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="section-eyebrow">Why Choose Us</span>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Reasons Enterprises Trust Us</h2>
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Reasons Enterprises <span className="whitespace-nowrap text-gradient">Trust Us</span></h2>
         </motion.div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

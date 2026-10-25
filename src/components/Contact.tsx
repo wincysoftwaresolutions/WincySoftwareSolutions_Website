@@ -125,7 +125,7 @@ function Contact() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="section-eyebrow">Get In Touch</span>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Let&apos;s Discuss Your Modernization Journey</h2>
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Let&apos;s Discuss Your <span className="text-gradient">Modernization Journey</span></h2>
           <p className="mt-4 text-[1.1333rem] leading-normal text-ink-gray">
             Connect with our modernization specialists to evaluate your existing systems and
             build a transformation roadmap tailored to your business.
