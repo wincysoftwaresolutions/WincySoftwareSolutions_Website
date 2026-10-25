@@ -29,10 +29,9 @@ export interface NavLink {
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
-  { label: 'Projects', href: '#projects' },
     {
     label: 'Tech Stack',
-    href: '#',
+    href: '#tech-stack',
     children: techStack.map((tech) => ({ label: tech.label, href: `#${tech.id}` })),
   },
   { label: 'About Us', href: '#about' },
@@ -120,82 +119,6 @@ export const stats: StatItem[] = [
   { value: 3, suffix: '+', label: 'Modernization Projects' },
   { value: 5, suffix: '+', label: 'Enterprise Clients' },
   { value: 100, suffix: '%', label: 'Customer Satisfaction' },
-]
-
-// Which modern-app illustration a project card shows (see ProjectVisual)
-export type ProjectVariant = 'dashboard' | 'services' | 'api' | 'web' | 'containers' | 'docs'
-
-export interface Project {
-  category: string
-  title: string
-  description: string
-  legacy: string
-  targets: string[]
-  variant: ProjectVariant
-  href: string
-}
-
-export const projects: Project[] = [
-  {
-    category: 'VB6 Modernization',
-    title: 'VB6 Business App to Azure',
-    description:
-      'VB6 forms and COM components become a React front end on .NET 10 services hosted in Azure, with every business rule preserved.',
-    legacy: 'VB6 · Forms',
-    targets: ['React', '.NET 10', 'Azure'],
-    variant: 'dashboard',
-    href: '#vb6',
-  },
-  {
-    category: 'Delphi Modernization',
-    title: 'Delphi Desktop to Cloud',
-    description:
-      'Delphi VCL screens and Pascal business logic move to a React web app backed by modern .NET microservices on Azure.',
-    legacy: 'Delphi · VCL',
-    targets: ['React', 'Modern .NET', 'Azure'],
-    variant: 'services',
-    href: '#delphi',
-  },
-  {
-    category: 'PowerBuilder Modernization',
-    title: 'PowerBuilder to REST APIs',
-    description:
-      'DataWindows and embedded SQL are untangled into secure .NET 10 REST APIs, with a responsive React UI on top.',
-    legacy: 'PowerBuilder',
-    targets: ['React', '.NET 10', 'REST APIs'],
-    variant: 'api',
-    href: '#powerbuilder',
-  },
-  {
-    category: 'Windows to Web',
-    title: 'Windows App to Web App',
-    description:
-      'WinForms and WPF desktop apps are rebuilt as browser-based React web apps, deployed cloud-native with no client installs.',
-    legacy: 'WinForms · WPF',
-    targets: ['React Web App', 'Cloud Native'],
-    variant: 'web',
-    href: '#windows-to-web',
-  },
-  {
-    category: '.NET Upgrade',
-    title: '.NET Framework to .NET 10',
-    description:
-      '.NET Framework 4.x applications are upgraded to .NET 10 for faster performance, long-term support and container-ready deployment.',
-    legacy: '.NET Framework 4.x',
-    targets: ['.NET 10', 'Containers'],
-    variant: 'containers',
-    href: '#dotnet',
-  },
-  {
-    category: 'AI Assessment',
-    title: 'AI Code Assessment & Documentation',
-    description:
-      'AI agents scan legacy code to map dependencies, extract business rules and generate architecture docs and test suites before migration.',
-    legacy: 'Legacy codebase',
-    targets: ['AI Agents', 'Docs', 'Test Suites'],
-    variant: 'docs',
-    href: '#contact',
-  },
 ]
 
 export interface Testimonial {

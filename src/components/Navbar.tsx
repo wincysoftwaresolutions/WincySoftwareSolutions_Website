@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import Logo from './Logo'
 import { navLinks } from '../utils/siteContent'
+import { isTechId, selectTech, useSelectedTech } from '../hooks/useTechSelection'
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -11,6 +12,7 @@ function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null)
   const navRef = useRef<HTMLElement>(null)
+  const selectedTech = useSelectedTech()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 12)
@@ -20,10 +22,9 @@ function Navbar() {
   }, [])
 
   useEffect(() => {
-    // Dropdown parents (e.g. "Tech Stack") link to "#" rather than a real
-    // page section, so they're excluded from scroll-spy tracking.
+    // Every nav item, including the "Tech Stack" dropdown parent, maps to a page section.
     const sections = navLinks
-      .filter((link) => !link.children && link.href !== '#')
+      .filter((link) => link.href !== '#')
       .map((link) => document.querySelector(link.href))
       .filter((el): el is Element => el !== null)
 
@@ -50,7 +51,7 @@ function Navbar() {
   }, [mobileOpen])
 
     // Publish the real nav height as a CSS variable so anchor links
-  // (#services, #projects, ...) always stop exactly below the header.
+  // (#services, #about, ...) always stop exactly below the header.
   useEffect(() => {
     const nav = navRef.current
     if (!nav) return
@@ -94,7 +95,12 @@ function Navbar() {
     // Wait for the menu's collapse animation to finish so the target's
     // position is measured against the final layout, not the still-open menu.
     window.setTimeout(() => {
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+      const id = href.slice(1)
+      if (isTechId(id)) {
+        selectTech(id)
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+      }
     }, 280)
   }
 
@@ -119,8 +125,8 @@ function Navbar() {
           <li key={link.label} className="relative">
             <button
               type="button"
-              className={`group flex items-center gap-1 whitespace-nowrap rounded-full px-4 py-2 text-[1.0333rem] font-medium ${
-                openDropdown === link.label ? 'text-primary' : 'text-ink-gray'
+              className={`group relative flex items-center gap-1 whitespace-nowrap rounded-full px-4 py-2 text-[1.0333rem] font-medium ${
+                openDropdown === link.label || activeHref === link.href ? 'text-primary' : 'text-ink-gray'
               }`}
               aria-haspopup="true"
               aria-expanded={openDropdown === link.label}
@@ -134,6 +140,13 @@ function Navbar() {
                   openDropdown === link.label ? 'rotate-180' : ''
                 }`}
               />
+              {activeHref === link.href && (
+                <motion.span
+                  layoutId="nav-active-underline"
+                  className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-orange-gradient"
+                  transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                />
+              )}
             </button>
 
             <AnimatePresence>
@@ -149,12 +162,21 @@ function Navbar() {
                     <li key={child.label}>
                       <a
                         href={child.href}
-                        onClick={() => setOpenDropdown(null)}
-                        className="group block px-4 py-2 text-sm-up font-medium text-ink-gray transition-colors hover:bg-primary-50"
+                        onClick={() => {
+                          setOpenDropdown(null)
+                          setActiveHref(link.href)
+                        }}
+                        aria-current={child.href === `#${selectedTech}` ? 'true' : undefined}
+                        className={`group flex items-center justify-between px-4 py-2 text-sm-up font-medium transition-colors hover:bg-primary-50 ${
+                          child.href === `#${selectedTech}` ? 'bg-primary-50 text-primary' : 'text-ink-gray'
+                        }`}
                       >
                         <span className="group-hover:bg-orange-gradient group-hover:bg-clip-text group-hover:text-transparent">
                           {child.label}
                         </span>
+                        {child.href === `#${selectedTech}` && (
+                          <span className="h-1.5 w-1.5 rounded-full bg-orange-gradient" aria-hidden="true" />
+                        )}
                       </a>
                     </li>
                   ))}
@@ -230,7 +252,7 @@ function Navbar() {
                         setOpenMobileDropdown((prev) => (prev === link.label ? null : link.label))
                       }
                       className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-base-up font-medium transition-colors ${
-                        openMobileDropdown === link.label
+                        openMobileDropdown === link.label || activeHref === link.href
                           ? 'bg-primary-50 text-primary'
                           : 'text-ink-gray hover:bg-primary-50 hover:text-primary'
                       }`}
@@ -256,7 +278,10 @@ function Navbar() {
                               <a
                                 href={child.href}
                                 onClick={closeMenuAndNavigate(child.href)}
-                                className="block rounded-xl px-4 py-2.5 text-sm-up font-medium text-ink-gray transition-colors hover:bg-primary-50 hover:text-primary"
+                                aria-current={child.href === `#${selectedTech}` ? 'true' : undefined}
+                                className={`block rounded-xl px-4 py-2.5 text-sm-up font-medium transition-colors hover:bg-primary-50 hover:text-primary ${
+                                  child.href === `#${selectedTech}` ? 'bg-primary-50 text-primary' : 'text-ink-gray'
+                                }`}
                               >
                                 {child.label}
                               </a>

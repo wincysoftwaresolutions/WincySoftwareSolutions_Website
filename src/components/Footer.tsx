@@ -56,11 +56,9 @@ function Footer() {
           </h3>
           <ul className="mt-5 space-y-3 text-sm-up">
             {navLinks.map((link) => {
-              // Dropdown parents (e.g. "Tech Stack") use href "#", so link to their first child instead.
-              const href = link.children?.[0]?.href ?? link.href
               return (
                 <li key={link.label}>
-                  <a href={href} className="transition-colors hover:text-primary">
+                  <a href={link.href} className="transition-colors hover:text-primary">
                     {link.label}
                   </a>
                 </li>

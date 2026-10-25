@@ -33,12 +33,12 @@ The dev server starts at `http://localhost:5173`.
 
 ```
 src/
-  components/     Navbar, Mainframe, Services, About, Stats, Projects,
+  components/     Navbar, Mainframe, Services, About, Stats, HowWeWork,
                    Testimonials, WhyChooseUs, CTA, Contact, Footer,
                    Logo, ScrollProgress, BackToTop, SEO
   pages/          Home, NotFound
   hooks/          useCountUp, useSEO
-  utils/          siteContent.ts — all site content (services, projects,
+  utils/          siteContent.ts — all site content (services, tech stack,
                    testimonials, stats, nav links, contact info)
   assets/         logo-light-bg.png, logo-dark-bg.png — brand logo,
                    one variant per background it's shown on
