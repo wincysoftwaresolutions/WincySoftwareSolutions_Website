@@ -126,33 +126,34 @@ export interface Testimonial {
   designation: string
   comment: string
   rating: number
-  image: string
+  avatar: 'male' | 'female'
 }
 
+// DRAFT: confirm each quote's wording and attribution with the named person before publishing.
 export const testimonials: Testimonial[] = [
   {
-    name: 'Thomas',
-    designation: 'Enterprise Architect',
+    name: 'Thomas Thanaraj',
+    designation: 'IT Engineering Delivery Head',
     comment:
-      'The modernization assessment gave our team a clear roadmap that significantly reduced project risk from day one.',
+      'Their AI-powered tools improved engineering productivity by automating complex analysis and accelerating delivery while maintaining quality and reliability.',
     rating: 5,
-    image: 'https://i.pravatar.cc/100?img=33',
+    avatar: 'male',
   },
   {
-    name: 'Thomas',
-    designation: 'IT Director',
+    name: 'Veni Jasmine',
+    designation: 'Founder and Managing Director',
     comment:
-      'Our legacy platform was transformed into scalable cloud services far faster than we expected.',
+      'Their Azure cloud modernization approach helped us transform legacy workloads into scalable, secure, and future-ready cloud solutions.',
     rating: 5,
-    image: 'https://i.pravatar.cc/100?img=44',
+    avatar: 'female',
   },
   {
-    name: 'Thomas',
-    designation: 'Engineering Manager',
+    name: 'Christian Hild',
+    designation: 'Founder and IT Director',
     comment:
-      'The AI-generated documentation alone saved our engineers hundreds of hours of manual work.',
+      'Their legacy technology expertise enabled a smooth modernization journey while preserving critical business logic and reducing operational risk.',
     rating: 5,
-    image: 'https://i.pravatar.cc/100?img=14',
+    avatar: 'male',
   },
 ]
 
