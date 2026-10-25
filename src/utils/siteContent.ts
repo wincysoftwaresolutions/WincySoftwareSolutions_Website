@@ -12,6 +12,9 @@ import {
   Rocket,
   Wallet,
   Layers,
+  CloudCog,
+  Workflow,
+  LockKeyhole,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -202,18 +205,30 @@ export const whyChooseUs: WhyChooseItem[] = [
   },
   {
     icon: Bot,
-    title: 'AI Powered Automation',
-    description: 'AI accelerates assessment, transformation and documentation across every engagement.',
+    title: 'AI-Empowered Toolkit',
+    description:
+      'Our AI agents analyze legacy code, extract business rules, convert code and generate tests and documentation automatically.',
   },
   {
     icon: Rocket,
     title: 'Faster Delivery',
-    description: 'Structured modernization frameworks compress delivery timelines without cutting corners.',
+    description: 'AI-driven automation and structured frameworks compress delivery timelines without cutting corners.',
+  },
+  {
+    icon: CloudCog,
+    title: 'Azure Cloud Expertise',
+    description:
+      'Modernize onto Microsoft Azure with App Service, AKS, Azure SQL and Azure Functions on landing zones built for scale.',
+  },
+  {
+    icon: Workflow,
+    title: 'Automated CI/CD & Testing',
+    description: 'Azure DevOps and GitHub Actions pipelines run AI-generated test suites to validate every release.',
   },
   {
     icon: Wallet,
     title: 'Lower Modernization Costs',
-    description: 'Automation and reusable patterns reduce the cost of large-scale transformation.',
+    description: 'Automation, reusable patterns and right-sized Azure resources reduce the cost of large-scale transformation.',
   },
   {
     icon: ShieldCheck,
@@ -221,9 +236,14 @@ export const whyChooseUs: WhyChooseItem[] = [
     description: 'Phased, well-tested migrations protect business continuity at every step.',
   },
   {
+    icon: LockKeyhole,
+    title: 'Secure & Compliant Cloud',
+    description: 'Microsoft Entra ID, Azure Key Vault and Defender for Cloud are built into every migration from day one.',
+  },
+  {
     icon: Layers,
     title: 'Future Ready Architecture',
-    description: 'Modern, modular architectures that are built to evolve with your business.',
+    description: 'Cloud-native, modular architectures on Azure, ready to adopt AI services like Azure OpenAI as you grow.',
   },
 ]
 
