@@ -51,7 +51,7 @@ const RESTART_HOLD_STEPS = 2 // steps to linger on "all migrated" before the cyc
 const iconById: Record<string, LucideIcon> = Object.fromEntries(techStack.map((tech) => [tech.id, tech.icon]))
 
 const statusStyles: Record<PipelineState, { label: string; icon: LucideIcon; className: string }> = {
-  done: { label: 'Migrated', icon: Check, className: 'bg-green-50 text-green-600' },
+  done: { label: 'Modernized', icon: Check, className: 'bg-green-50 text-green-600' },
   active: { label: 'Transforming', icon: Loader2, className: 'bg-primary-50 text-primary' },
   analyzing: { label: 'Analyzing', icon: ScanSearch, className: 'bg-amber-50 text-amber-600' },
   queued: { label: 'Queued', icon: Clock3, className: 'bg-black/5 text-ink-gray' },
