@@ -130,3 +130,28 @@
     animation: none !important;
   }
 }
+
+/* Hero pipeline panel */
+@keyframes hero-shine {
+  0% { transform: translateX(-120%); }
+  60%, 100% { transform: translateX(320%); }
+}
+@keyframes hero-scan {
+  0% { top: -30%; opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 105%; opacity: 0; }
+}
+@keyframes hero-caret {
+  50% { opacity: 0; }
+}
+@keyframes hero-march {
+  to { background-position: 12px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim,
+  .hero-anim * {
+    animation: none !important;
+  }
+}
