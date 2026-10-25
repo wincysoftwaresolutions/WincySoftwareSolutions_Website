@@ -9,6 +9,9 @@ interface ProjectVisualProps {
 }
 
 const inView = { once: true, amount: 0.4 } as const
+const ease = [0.22, 1, 0.36, 1] as const
+// Entrance sequence (seconds): legacy window, then the flow path, then the modern window and its content
+const T = { legacy: 0.1, path: 0.4, modern: 0.65, body: 0.9, tags: 1.1 }
 
 // Retro desktop window: grey bevelled form, navy title bar
 function LegacyWindow({ label }: { label: string }) {
@@ -57,7 +60,7 @@ function DashboardBody() {
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
             viewport={inView}
-            transition={{ duration: 0.6, delay: 0.3 + i * 0.08, ease: 'easeOut' }}
+            transition={{ duration: 0.6, delay: T.body + i * 0.08, ease: 'easeOut' }}
           />
         ))}
       </div>
@@ -86,7 +89,7 @@ function ServicesBody() {
           initial={{ pathLength: 0 }}
           whileInView={{ pathLength: 1 }}
           viewport={inView}
-          transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+          transition={{ duration: 0.5, delay: T.body + i * 0.1 }}
         />
       ))}
       <circle cx="50" cy="50" r="11" fill="#D61F7F" />
@@ -100,7 +103,7 @@ function ServicesBody() {
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           viewport={inView}
-          transition={{ duration: 0.35, delay: 0.6 + i * 0.1 }}
+          transition={{ duration: 0.35, delay: T.body + 0.3 + i * 0.1 }}
         />
       ))}
     </svg>
@@ -122,7 +125,7 @@ function ApiBody() {
           initial={{ opacity: 0, x: 8 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={inView}
-          transition={{ duration: 0.35, delay: 0.3 + i * 0.12 }}
+          transition={{ duration: 0.35, delay: T.body + i * 0.12 }}
         >
           <span className="font-bold text-primary">{r.method}</span>
           <span className="truncate text-ink">{r.path}</span>
@@ -148,7 +151,7 @@ function WebBody() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={inView}
-            transition={{ duration: 0.3, delay: 0.3 + i * 0.1 }}
+            transition={{ duration: 0.3, delay: T.body + i * 0.1 }}
           />
         ))}
       </div>
@@ -187,7 +190,7 @@ function DocsBody() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={inView}
-            transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+            transition={{ duration: 0.4, delay: T.body + i * 0.1 }}
           />
         ))}
       </div>
@@ -225,13 +228,40 @@ function ProjectVisual({ legacy, targets, variant }: ProjectVisualProps) {
       />
 
       <div className="absolute inset-0 flex items-center gap-2 px-5 pb-10 pt-10 sm:px-6" aria-hidden="true">
-        <div className="w-[36%] flex-shrink-0">
+        <motion.div
+          className="w-[36%] flex-shrink-0"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={inView}
+          transition={{ duration: 0.6, delay: T.legacy, ease }}
+        >
           <LegacyWindow label={legacy} />
-        </div>
+        </motion.div>
 
-        {/* Flow from legacy to modern */}
+        {/* Flow from legacy to modern: the path draws in, then dashes march and dots travel along it */}
         <div className="relative flex h-6 flex-1 items-center">
-          <span className="w-full border-t border-dashed border-white/25" />
+          <motion.svg
+            className="h-px w-full origin-left overflow-visible"
+            preserveAspectRatio="none"
+            viewBox="0 0 100 1"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={inView}
+            transition={{ duration: 0.5, delay: T.path, ease }}
+          >
+            <motion.line
+              x1="0"
+              y1="0.5"
+              x2="100"
+              y2="0.5"
+              stroke="rgba(255,255,255,0.3)"
+              strokeWidth="1"
+              strokeDasharray="4 4"
+              vectorEffect="non-scaling-stroke"
+              animate={reduceMotion ? undefined : { strokeDashoffset: [0, -16] }}
+              transition={{ duration: 1.2, repeat: Infinity, ease: 'linear' }}
+            />
+          </motion.svg>
           {!reduceMotion &&
             [0, 1, 2].map((i) => (
               <motion.span
@@ -239,32 +269,49 @@ function ProjectVisual({ legacy, targets, variant }: ProjectVisualProps) {
                 className="absolute h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(255,169,64,0.8)]"
                 initial={{ left: '0%', opacity: 0 }}
                 animate={{ left: ['0%', '85%'], opacity: [0, 1, 1, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut', delay: i * 0.6 }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut', delay: T.modern + i * 0.6 }}
               />
             ))}
-          <ArrowRight className="absolute -right-1 h-3.5 w-3.5 text-secondary" />
+          <motion.span
+            className="absolute -right-1 flex"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={inView}
+            transition={{ duration: 0.3, delay: T.path + 0.4 }}
+          >
+            <motion.span
+              className="flex"
+              animate={reduceMotion ? undefined : { x: [0, 3, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <ArrowRight className="h-3.5 w-3.5 text-secondary" />
+            </motion.span>
+          </motion.span>
         </div>
 
         {/* Modern app window */}
         <motion.div
-          className="w-[44%] flex-shrink-0 overflow-hidden rounded-lg bg-white shadow-2xl transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-[1.04]"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="w-[44%] flex-shrink-0"
+          initial={{ opacity: 0, y: 12, scale: 0.94 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={inView}
-          transition={{ duration: 0.5, delay: 0.15 }}
+          transition={{ duration: 0.55, delay: T.modern, ease }}
         >
-          <div className="flex items-center gap-1 bg-orange-gradient px-2 py-1">
-            {[0, 1, 2].map((i) => (
-              <span key={i} className="h-1 w-1 rounded-full bg-white/80" />
-            ))}
-          </div>
-          <div className="p-2">
-            {variant === 'dashboard' && <DashboardBody />}
-            {variant === 'services' && <ServicesBody />}
-            {variant === 'api' && <ApiBody />}
-            {variant === 'web' && <WebBody />}
-            {variant === 'containers' && <ContainersBody animate={!reduceMotion} />}
-            {variant === 'docs' && <DocsBody />}
+          {/* Inner element owns the hover lift so it isn't overridden by the entrance animation's transform */}
+          <div className="overflow-hidden rounded-lg bg-white shadow-2xl transition duration-500 group-hover:-translate-y-1 group-hover:scale-[1.04] group-hover:shadow-[0_12px_36px_rgba(214,31,127,0.45)] motion-reduce:transition-none">
+            <div className="flex items-center gap-1 bg-orange-gradient px-2 py-1">
+              {[0, 1, 2].map((i) => (
+                <span key={i} className="h-1 w-1 rounded-full bg-white/80" />
+              ))}
+            </div>
+            <div className="p-2">
+              {variant === 'dashboard' && <DashboardBody />}
+              {variant === 'services' && <ServicesBody />}
+              {variant === 'api' && <ApiBody />}
+              {variant === 'web' && <WebBody />}
+              {variant === 'containers' && <ContainersBody animate={!reduceMotion} />}
+              {variant === 'docs' && <DocsBody />}
+            </div>
           </div>
         </motion.div>
       </div>
@@ -274,13 +321,17 @@ function ProjectVisual({ legacy, targets, variant }: ProjectVisualProps) {
         {targets.map((target, i) => (
           <motion.span
             key={target}
-            className="rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white backdrop-blur"
             initial={{ opacity: 0, y: 6 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inView}
-            transition={{ duration: 0.3, delay: 0.5 + i * 0.1 }}
+            transition={{ duration: 0.35, delay: T.tags + i * 0.1, ease }}
           >
-            {target}
+            <span
+              className="block rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white backdrop-blur transition duration-300 group-hover:-translate-y-0.5 group-hover:border-secondary/50 group-hover:bg-white/15 motion-reduce:transition-none"
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
+              {target}
+            </span>
           </motion.span>
         ))}
       </div>
