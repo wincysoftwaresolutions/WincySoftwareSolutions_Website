@@ -1,83 +1,105 @@
 import { motion } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
+import { Eye, Target, type LucideIcon } from 'lucide-react'
 import { aboutFeatures } from '../utils/siteContent'
+import AboutVisual from './AboutVisual'
 
-const highlights = [
-  'AI-assisted assessment & transformation teams',
-  'Phased migrations with zero business disruption',
-  'Post-modernization support & optimization',
+const pillars: { icon: LucideIcon; title: string; text: string }[] = [
+  {
+    icon: Target,
+    title: 'Our Mission',
+    text: 'To modernize legacy applications faster and safer, using AI-powered assessment, code transformation and testing to deliver cloud-ready systems with every business rule preserved.',
+  },
+  {
+    icon: Eye,
+    title: 'Our Vision',
+    text: 'To be the most trusted modernization partner for enterprises that can’t afford downtime, built on transparency, engineering precision and speed.',
+  },
 ]
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.12, ease: 'easeOut' as const },
+  }),
+}
 
 function About() {
   return (
-    <section id="about" className="section-padding bg-surface-light">
-      <div className="container-app grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="relative"
-        >
-          <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-orange-gradient-soft" />
-          <div className="overflow-hidden rounded-card shadow-softLg">
-            <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=60"
-              alt="Wincy Software Solutions modernization engineering team collaborating"
-              loading="lazy"
-              className="h-full w-full object-cover"
+    <section id="about" className="section-padding relative overflow-hidden bg-surface-light">
+      <div className="container-app">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
+            <motion.span variants={fadeUp} custom={0} className="section-eyebrow">
+              About Us
+            </motion.span>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl font-semibold sm:text-4xl lg:text-5xl">
+              Modernization, Engineered for <span className="text-gradient">Continuity</span>
+            </motion.h2>
+            <motion.span
+              variants={{
+                hidden: { scaleX: 0 },
+                visible: { scaleX: 1, transition: { duration: 0.6, delay: 0.35, ease: 'easeOut' } },
+              }}
+              className="mt-5 block h-1 w-16 origin-left rounded-full bg-orange-gradient"
+              aria-hidden="true"
             />
-          </div>
-          <div className="glass-card absolute -bottom-6 -right-6 hidden max-w-[220px] p-5 sm:block">
-            <p className="font-heading text-3xl-up font-bold text-primary">5+</p>
-            <p className="text-sm-up text-ink-gray">Enterprise clients modernized worldwide</p>
-          </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="section-eyebrow">About Us</span>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">
-            Helping Enterprises Modernize Mission-Critical Systems
-          </h2>
-          <p className="mt-5 text-[1.1833rem] leading-[1.7] text-ink-gray">
-            We help organizations unlock the value hidden inside legacy applications by
-            combining artificial intelligence with deep modernization expertise. From assessment
-            to transformation, we accelerate digital initiatives while minimizing risk and
-            preserving business continuity.
-          </p>
+            <motion.p variants={fadeUp} custom={2} className="mt-6 text-[1.1833rem] leading-[1.7] text-ink-gray">
+              Wincy Software Solutions was founded on a simple belief: legacy applications hold years
+              of proven business logic, and modernizing them shouldn&apos;t mean starting over. We are
+              a team of engineers and modernization specialists who combine AI agents with deep
+              expertise in VB6, Delphi, PowerBuilder and .NET to move mission-critical systems to
+              React, .NET 10 and Azure, without disrupting the business.
+            </motion.p>
 
-          <ul className="mt-6 space-y-3">
-            {highlights.map((item) => (
-              <li key={item} className="flex items-center gap-3 text-ink-gray">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-primary" />
-                {item}
-              </li>
-            ))}
-          </ul>
+            <div className="mt-10 grid gap-8 sm:grid-cols-2">
+              {pillars.map((pillar, index) => {
+                const Icon = pillar.icon
+                return (
+                  <motion.div
+                    key={pillar.title}
+                    variants={fadeUp}
+                    custom={3 + index}
+                    whileHover={{ y: -4 }}
+                    className="group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary transition-colors duration-300 group-hover:bg-orange-gradient group-hover:text-white">
+                        <Icon className="h-[18px] w-[18px]" />
+                      </span>
+                      <h3 className="font-heading text-[1.05rem] font-semibold text-ink">{pillar.title}</h3>
+                    </div>
+                    <p className="mt-3 text-[0.9833rem] leading-relaxed text-ink-gray">{pillar.text}</p>
+                  </motion.div>
+                )
+              })}
+            </div>
+          </motion.div>
 
-          <div className="mt-10 grid grid-cols-2 gap-5">
-            {aboutFeatures.map((feature) => {
-              const Icon = feature.icon
-              return (
-                <div
-                  key={feature.title}
-                  className="card-surface p-5 hover:-translate-y-1 hover:shadow-softLg"
-                >
-                  <Icon className="h-6 w-6 text-primary" />
-                  <h3 className="mt-3 font-heading text-[1.05rem] font-semibold text-ink">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-1 text-[0.9833rem] leading-normal text-ink-gray">{feature.description}</p>
-                </div>
-              )
-            })}
-          </div>
-        </motion.div>
+          <AboutVisual />
+        </div>
+
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {aboutFeatures.map((feature, index) => {
+            const Icon = feature.icon
+            return (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="card-surface p-5 hover:-translate-y-1 hover:shadow-softLg"
+              >
+                <Icon className="h-6 w-6 text-primary" />
+                <h3 className="mt-3 font-heading text-[1.05rem] font-semibold text-ink">{feature.title}</h3>
+                <p className="mt-1 text-[0.9833rem] leading-normal text-ink-gray">{feature.description}</p>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

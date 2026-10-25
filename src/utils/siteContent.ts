@@ -35,7 +35,7 @@ export const navLinks: NavLink[] = [
     href: '#',
     children: techStack.map((tech) => ({ label: tech.label, href: `#${tech.id}` })),
   },
-  { label: 'About', href: '#about' },
+  { label: 'About Us', href: '#about' },
   { label: 'Achievements', href: '#achievements' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
