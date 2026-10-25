@@ -29,9 +29,6 @@ export default {
           DEFAULT: '#121212',
           gray: '#3F3F46',
         },
-        accent: {
-          DEFAULT: '#FFE5CC',
-        },
       },
       fontFamily: {
         heading: ['Hanken Grotesk', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
@@ -44,9 +41,7 @@ export default {
         'sm-up': ['0.9583rem', { lineHeight: '1.25rem' }],
         'base-up': ['1.0833rem', { lineHeight: '1.5rem' }],
         'lg-up': ['1.2083rem', { lineHeight: '1.75rem' }],
-        'xl-up': ['1.3333rem', { lineHeight: '1.75rem' }],
         '2xl-up': ['1.5833rem', { lineHeight: '2rem' }],
-        '3xl-up': ['1.9583rem', { lineHeight: '2.25rem' }],
         '4xl-up': ['2.3333rem', { lineHeight: '2.5rem' }],
         '5xl-up': ['3.0833rem', { lineHeight: '1' }],
       },
@@ -63,18 +58,11 @@ export default {
         'orange-gradient-soft': 'linear-gradient(135deg, #FDEEF5 0%, #FFE8CF 100%)',
       },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'float-slow': 'float 9s ease-in-out infinite',
         'float-up': 'float-up 6s ease-in-out infinite',
         'float-down': 'float-down 7s ease-in-out infinite',
         'blob': 'blob 12s infinite',
-        'gradient-x': 'gradient-x 8s ease infinite',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-18px)' },
-        },
         'float-up': {
           '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
           '50%': { transform: 'translate3d(0, -8px, 0)' },
@@ -87,10 +75,6 @@ export default {
           '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
           '33%': { transform: 'translate(30px, -40px) scale(1.1)' },
           '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-        },
-        'gradient-x': {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
         },
       },
     },

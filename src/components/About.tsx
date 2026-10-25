@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Eye, Target, type LucideIcon } from 'lucide-react'
 import { aboutFeatures } from '../utils/siteContent'
 import AboutVisual from './AboutVisual'
+import { fadeUpVariants } from '../utils/motion'
 
 const pillars: { icon: LucideIcon; title: string; text: string }[] = [
   {
@@ -16,14 +17,7 @@ const pillars: { icon: LucideIcon; title: string; text: string }[] = [
   },
 ]
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.12, ease: 'easeOut' as const },
-  }),
-}
+const fadeUp = fadeUpVariants(24)
 
 function About() {
   return (

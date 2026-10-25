@@ -5,7 +5,7 @@ interface LogoProps {
   className?: string
 }
 
-// Icon and wordmark are separate crops of logo-light-bg.png so each can be sized on its own.
+// Icon and wordmark are separate images (cropped from the full logo) so each can be sized on its own.
 // The wordmark sits slightly below the icon's centre, as in the original artwork.
 function Logo({ className = '' }: LogoProps) {
   return (

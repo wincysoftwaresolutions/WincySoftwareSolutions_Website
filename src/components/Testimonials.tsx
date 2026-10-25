@@ -3,6 +3,9 @@ import { MotionConfig, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react'
 import { testimonials, type Testimonial } from '../utils/siteContent'
 
+import SectionHeader from './SectionHeader'
+import { easeOutExpo } from '../utils/motion'
+
 const AUTO_ADVANCE_MS = 6000
 const SIDE_SPACING = 0.85 // how far side cards sit from the center, as a fraction of card width
 const SIDE_SCALE = 0.88
@@ -108,16 +111,14 @@ function Testimonials() {
     <MotionConfig reducedMotion="user">
       <section id="testimonials" className="section-padding bg-surface-light">
         <div className="container-app">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto max-w-2xl text-center"
-          >
-            <span className="section-eyebrow">Testimonials</span>
-            <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">What Our <span className="whitespace-nowrap text-gradient">Clients Say</span></h2>
-          </motion.div>
+          <SectionHeader
+            eyebrow="Testimonials"
+            title={
+              <>
+                What Our <span className="whitespace-nowrap text-gradient">Clients Say</span>
+              </>
+            }
+          />
 
           <div
             className="relative mt-14"
@@ -144,7 +145,7 @@ function Testimonials() {
                 const targetOpacity = isCenter ? 1 : isVisible ? 0.6 : 0
 
                 const spring = { type: 'spring' as const, stiffness: 110, damping: 20, mass: 0.9 }
-                const fade = { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }
+                const fade = { duration: 0.7, ease: easeOutExpo }
 
                 return (
                   <motion.div

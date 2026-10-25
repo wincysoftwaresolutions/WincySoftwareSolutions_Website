@@ -19,7 +19,7 @@ import {
 
 import { techStack } from './techStackData'
 
-export interface NavLink {
+interface NavLink {
   label: string
   href: string
   children?: NavLink[]
@@ -39,7 +39,7 @@ export const navLinks: NavLink[] = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export interface Service {
+interface Service {
   icon: LucideIcon
   title: string
   description: string
@@ -78,7 +78,7 @@ export const services: Service[] = [
   },
 ]
 
-export interface AboutFeature {
+interface AboutFeature {
   icon: LucideIcon
   title: string
   description: string
@@ -211,10 +211,10 @@ export const whyChooseUs: WhyChooseItem[] = [
 export const contactInfo = {
   address: 'Chennai, Tamil Nadu, India',
   phone: '+91 994 156 0814',
-  email: 'wincysoftwaresolutions@gmail.com',//wincysoftwaresolutions@gmail.com
+  email: 'wincysoftwaresolutions@gmail.com',
 }
 
-export interface SocialLink {
+interface SocialLink {
   label: string
   href: string
 }

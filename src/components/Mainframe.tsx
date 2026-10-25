@@ -1,15 +1,9 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Layers, BrainCircuit } from 'lucide-react'
 import HeroPipeline from './HeroPipeline'
+import { fadeUpVariants } from '../utils/motion'
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.12, ease: 'easeOut' as const },
-  }),
-}
+const fadeUp = fadeUpVariants(28)
 
 function Mainframe() {
   return (

@@ -1,8 +1,10 @@
 import { forwardRef, useCallback, useLayoutEffect, useRef, useState, useSyncExternalStore, type CSSProperties } from 'react'
 import { MotionConfig, motion, useInView, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
 import { whyChooseUs, type WhyChooseItem } from '../utils/siteContent'
+import SectionHeader from './SectionHeader'
+import { easeOutExpo } from '../utils/motion'
 
-const ease = [0.22, 1, 0.36, 1] as const
+const ease = easeOutExpo
 const CORE_RADIUS = 70 // px; connection paths start just outside the core disc
 const CYCLE_S = 4 // shared timeline for comets, flares and the mobile line dot (see index.css keyframes)
 const LEFT = [0, 1, 2, 3]
@@ -231,18 +233,14 @@ function WhyChooseUs() {
           aria-hidden="true"
         />
         <div className="container-app relative">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto max-w-2xl text-center"
-          >
-            <span className="section-eyebrow">Why Choose Us</span>
-            <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">
-              Reasons Enterprises <span className="whitespace-nowrap text-gradient">Trust Us</span>
-            </h2>
-          </motion.div>
+          <SectionHeader
+            eyebrow="Why Choose Us"
+            title={
+              <>
+                Reasons Enterprises <span className="whitespace-nowrap text-gradient">Trust Us</span>
+              </>
+            }
+          />
 
           {isDesktop ? (
             // Desktop: hub-and-spoke — four cards each side of the core

@@ -1,24 +1,20 @@
 import { motion } from 'framer-motion'
 import { services } from '../utils/siteContent'
+import SectionHeader from './SectionHeader'
 
 function Services() {
   return (
     <section id="services" className="section-padding bg-surface">
       <div className="container-app">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="section-eyebrow">What We Do</span>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Our <span className="text-gradient">Services</span></h2>
-          <p className="mt-4 text-[1.1333rem] leading-normal text-ink-gray">
-            End-to-end modernization services that take legacy systems from assessment to
-            cloud-ready transformation.
-          </p>
-        </motion.div>
+        <SectionHeader
+          eyebrow="What We Do"
+          title={
+            <>
+              Our <span className="text-gradient">Services</span>
+            </>
+          }
+          subtitle="End-to-end modernization services that take legacy systems from assessment to cloud-ready transformation."
+        />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {

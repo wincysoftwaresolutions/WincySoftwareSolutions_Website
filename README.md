@@ -33,14 +33,16 @@ The dev server starts at `http://localhost:5173`.
 
 ```
 src/
-  components/     Navbar, Mainframe, Services, About, Stats, HowWeWork,
+  components/     Navbar, Mainframe (+ HeroPipeline), Services, About
+                   (+ AboutVisual), Stats, HowWeWork, TechStack,
                    Testimonials, WhyChooseUs, CTA, Contact, Footer,
-                   Logo, ScrollProgress, BackToTop, SEO
+                   SectionHeader, Logo, FooterLogo, ScrollProgress,
+                   BackToTop, SEO
   pages/          Home, NotFound
-  hooks/          useCountUp, useSEO
-  utils/          siteContent.ts — all site content (services, tech stack,
+  hooks/          useCountUp, useSEO, useTechSelection
+  utils/          siteContent.ts, techStackData.ts, motion.ts — content + motion (services, tech stack,
                    testimonials, stats, nav links, contact info)
-  assets/         logo-light-bg.png, logo-dark-bg.png — brand logo,
+  assets/         logo-icon.png + logo-text.png (header), logo-dark-bg.png (footer) — brand logo,
                    one variant per background it's shown on
   styles/         index.css — Tailwind layers + design tokens
   App.tsx         Router + layout shell

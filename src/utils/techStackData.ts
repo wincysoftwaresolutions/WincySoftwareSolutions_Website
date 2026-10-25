@@ -1,6 +1,6 @@
 import { AppWindow, Code, Database, Layers, Server, type LucideIcon } from 'lucide-react'
 
-export interface TechStackItem {
+interface TechStackItem {
   id: string
   label: string
   icon: LucideIcon

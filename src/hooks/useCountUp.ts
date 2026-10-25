@@ -9,11 +9,11 @@ interface UseCountUpOptions {
 export function useCountUp({ end, duration = 2000, start = false }: UseCountUpOptions) {
   const [value, setValue] = useState(0)
   const frameRef = useRef<number | undefined>(undefined)
-  const hasRunRef = useRef(false)
 
   useEffect(() => {
-    if (!start || hasRunRef.current) return
-    hasRunRef.current = true
+    // `start` flips true once (callers use a once-only in-view check); the cleanup cancels any
+    // in-flight frame, so a re-run (e.g. React StrictMode) simply restarts the count
+    if (!start) return
 
     const startTime = performance.now()
 

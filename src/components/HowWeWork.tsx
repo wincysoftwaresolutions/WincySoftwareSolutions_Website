@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import SectionHeader from './SectionHeader'
 
 const steps = [
   {
@@ -28,28 +29,16 @@ function HowWeWork() {
   return (
     <section id="how-we-work" className="section-padding bg-surface">
       <div className="container-app">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="section-eyebrow">Our Process</span>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">How We <span className="text-gradient">Work</span></h2>
-          <motion.span
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
-            className="mx-auto mt-5 block h-1 w-16 rounded-full bg-orange-gradient"
-            aria-hidden="true"
-          />
-          <p className="mt-5 text-[1.1333rem] leading-normal text-ink-gray">
-            A transparent, iterative process designed to deliver working, modernized software fast,
-            and evolve it intelligently over time.
-          </p>
-        </motion.div>
+        <SectionHeader
+          eyebrow="Our Process"
+          title={
+            <>
+              How We <span className="text-gradient">Work</span>
+            </>
+          }
+          underline
+          subtitle="A transparent, iterative process designed to deliver working, modernized software fast, and evolve it intelligently over time."
+        />
 
         <ol className="relative mx-auto mt-16 grid max-w-2xl gap-10 lg:max-w-none lg:grid-cols-4 lg:gap-8">
           {steps.map((step, index) => {

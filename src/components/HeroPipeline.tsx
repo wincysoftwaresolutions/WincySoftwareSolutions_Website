@@ -258,7 +258,7 @@ function HeroPipeline() {
               <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
               <span className="ml-2 min-w-0 truncate font-mono text-[0.9167rem] leading-4 text-ink-gray">modernization-pipeline</span>
-              <span className="ml-auto flex flex-shrink-0 items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[13.67px] font-semibold text-primary">
+              <span className="ml-auto flex flex-shrink-0 items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[13.67px] font-semibold text-primary-600">
                 <motion.span
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
@@ -351,7 +351,12 @@ function HeroPipeline() {
                             initial={{ opacity: 0, scale: 0.6, filter: 'blur(4px)' }}
                             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                             exit={{ opacity: 0, scale: 0.6, filter: 'blur(4px)' }}
-                            transition={{ type: 'spring', stiffness: 320, damping: 22 }}
+                            // Spring only the scale: a springy blur overshoots below 0px, which browsers reject
+                            transition={{
+                              scale: { type: 'spring', stiffness: 320, damping: 22 },
+                              opacity: { duration: 0.2 },
+                              filter: { duration: 0.25, ease: 'easeOut' },
+                            }}
                             className={`inline-flex items-center gap-1 rounded-full px-1.5 py-1 text-[12.67px] font-semibold sm:px-2 ${status.className}`}
                             title={status.label}
                           >

@@ -15,6 +15,7 @@ import {
   Twitter,
 } from 'lucide-react'
 import { contactInfo, socialLinks } from '../utils/siteContent'
+import SectionHeader from './SectionHeader'
 
 const socialIcons = {
   Facebook,
@@ -117,20 +118,15 @@ function Contact() {
   return (
     <section id="contact" className="section-padding bg-surface-light">
       <div className="container-app">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="section-eyebrow">Get In Touch</span>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Let&apos;s Discuss Your <span className="text-gradient">Modernization Journey</span></h2>
-          <p className="mt-4 text-[1.1333rem] leading-normal text-ink-gray">
-            Connect with our modernization specialists to evaluate your existing systems and
-            build a transformation roadmap tailored to your business.
-          </p>
-        </motion.div>
+        <SectionHeader
+          eyebrow="Get In Touch"
+          title={
+            <>
+              Let&apos;s Discuss Your <span className="text-gradient">Modernization Journey</span>
+            </>
+          }
+          subtitle="Connect with our modernization specialists to evaluate your existing systems and build a transformation roadmap tailored to your business."
+        />
 
         <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-5">
           <motion.div

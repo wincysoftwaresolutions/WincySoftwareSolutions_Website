@@ -3,8 +3,9 @@ import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { techStack } from '../utils/techStackData'
 import { TECH_SECTION_ID, isTechId, selectTech, useSelectedTech } from '../hooks/useTechSelection'
+import { easeOutExpo } from '../utils/motion'
 
-const ease = [0.22, 1, 0.36, 1] as const
+const ease = easeOutExpo
 
 const panel = {
   hidden: { opacity: 0 },

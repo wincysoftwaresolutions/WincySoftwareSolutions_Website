@@ -51,9 +51,9 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-white">
+          <h2 className="font-heading text-sm font-semibold uppercase tracking-widest text-white">
             Quick Links
-          </h3>
+          </h2>
           <ul className="mt-5 space-y-3 text-sm-up">
             {navLinks.map((link) => {
               return (
@@ -68,9 +68,9 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-white">
+          <h2 className="font-heading text-sm font-semibold uppercase tracking-widest text-white">
             Services
-          </h3>
+          </h2>
           <ul className="mt-5 space-y-3 text-sm-up">
             {services.slice(0, 6).map((service) => (
               <li key={service.title}>
@@ -83,9 +83,9 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-white">
+          <h2 className="font-heading text-sm font-semibold uppercase tracking-widest text-white">
             Contact
-          </h3>
+          </h2>
           <ul className="mt-5 space-y-4 text-sm-up">
             <li className="flex items-start gap-3">
               <MapPin className="h-4 w-4 flex-shrink-0 text-primary" />
