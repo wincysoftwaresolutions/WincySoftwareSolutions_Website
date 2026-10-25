@@ -3,6 +3,7 @@ import Mainframe from '../components/Mainframe'
 import Services from '../components/Services'
 import About from '../components/About'
 import Stats from '../components/Stats'
+import HowWeWork from '../components/HowWeWork'
 import Projects from '../components/Projects'
 import TechStack from '../components/TechStack'
 import Testimonials from '../components/Testimonials'
@@ -18,6 +19,7 @@ function Home() {
       <Services />
       <About />
       <Stats />
+      <HowWeWork />
       <Projects />
       <TechStack />
       <Testimonials />

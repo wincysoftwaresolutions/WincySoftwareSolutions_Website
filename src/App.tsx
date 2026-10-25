@@ -8,7 +8,7 @@ import NotFound from './pages/NotFound'
 
 function App() {
   return (
-    <div className="flex min-h-screen flex-col overflow-x-hidden bg-surface">
+    <div className="flex min-h-screen flex-col overflow-x-clip bg-surface">
       <ScrollProgress />
       <Navbar />
       <main className="flex-1">

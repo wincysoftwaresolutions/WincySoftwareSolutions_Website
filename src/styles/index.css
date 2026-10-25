@@ -5,7 +5,7 @@
 @layer base {
     html {
     scroll-behavior: smooth;
-    scroll-padding-top: 0rem;
+    scroll-padding-top: var(--header-h, 0px);
   }
 
   body {
