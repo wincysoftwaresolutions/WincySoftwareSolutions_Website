@@ -177,7 +177,7 @@ function Mainframe() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative mx-auto w-full max-w-md pb-10 pt-12 sm:pb-14 sm:pt-14 lg:mr-0 lg:max-w-lg"
+          className="relative mx-auto w-full max-w-md sm:max-w-lg pb-10 pt-12 sm:pb-14 sm:pt-14 lg:mr-0 lg:max-w-[35rem]"
         >
           <div
             className="absolute inset-x-8 top-4 h-3/4 rounded-[3rem] bg-primary-200/50 opacity-70 blur-3xl"
@@ -190,8 +190,8 @@ function Mainframe() {
               <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
               <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-              <span className="ml-2 min-w-0 truncate font-mono text-xs-up text-ink-gray">modernization-pipeline</span>
-              <span className="ml-auto flex flex-shrink-0 items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[12.33px] font-semibold text-primary">
+              <span className="ml-2 min-w-0 truncate font-mono text-[0.9167rem] leading-4 text-ink-gray">modernization-pipeline</span>
+              <span className="ml-auto flex flex-shrink-0 items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[13.67px] font-semibold text-primary">
                 <motion.span
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
@@ -201,7 +201,7 @@ function Mainframe() {
               </span>
             </div>
 
-            <div className="grid grid-cols-[minmax(0,0.85fr)_1.75rem_minmax(0,1.15fr)_auto] items-center gap-2 px-5 pb-1 pt-3 font-mono text-[11.33px] font-medium uppercase tracking-[0.08em] text-ink-gray sm:grid-cols-[minmax(0,0.85fr)_2.5rem_minmax(0,1.15fr)_auto] sm:gap-3">
+            <div className="grid grid-cols-[minmax(0,1fr)_1.75rem_minmax(0,1fr)_auto] items-center gap-2 px-5 pb-1 pt-3 font-mono text-[12.67px] font-medium uppercase tracking-[0.08em] text-ink-gray sm:grid-cols-[minmax(0,1fr)_2.5rem_minmax(0,1fr)_auto] sm:gap-3">
               <span>Legacy</span>
               <span />
               <span>Modern target</span>
@@ -223,17 +223,17 @@ function Mainframe() {
                   >
                     <a
                       href={`#${row.id}`}
-                      className="grid grid-cols-[minmax(0,0.85fr)_1.75rem_minmax(0,1.15fr)_auto] items-center gap-2 rounded-xl px-2 py-2.5 transition-colors hover:bg-primary-50/60 sm:grid-cols-[minmax(0,0.85fr)_2.5rem_minmax(0,1.15fr)_auto] sm:gap-3"
+                      className="grid grid-cols-[minmax(0,1fr)_1.75rem_minmax(0,1fr)_auto] items-center gap-2 rounded-xl px-2 py-2.5 transition-colors hover:bg-primary-50/60 sm:grid-cols-[minmax(0,1fr)_2.5rem_minmax(0,1fr)_auto] sm:gap-3"
                     >
                       <span className="flex min-w-0 items-center gap-2.5">
-                        <span className="hidden h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-black/5 text-ink-gray sm:flex">
+                        <span className="hidden h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-black/5 text-ink-gray xl:flex">
                           <LegacyIcon className="h-4 w-4" />
                         </span>
                         <span className="min-w-0">
-                          <span className="block text-[14.33px] font-medium leading-snug text-ink sm:text-sm-up">
+                          <span className="block text-[15.67px] font-medium leading-snug text-ink [overflow-wrap:anywhere] sm:text-[1.0417rem] sm:leading-5">
                             {row.legacy}
                           </span>
-                          <span className="block truncate font-mono text-[11.33px] text-ink-gray">
+                          <span className="block font-mono text-[12.67px] leading-snug text-ink-gray">
                             {row.legacyNote}
                           </span>
                         </span>
@@ -267,21 +267,21 @@ function Mainframe() {
 
                       <span className="min-w-0">
                         <span
-                          className={`block text-[14.33px] font-semibold leading-snug sm:text-sm-up ${
+                          className={`block text-[15.67px] font-semibold leading-snug sm:text-[1.0417rem] sm:leading-5 ${
                             row.state === 'queued' ? 'text-ink-gray' : 'text-gradient'
                           }`}
                         >
                           {row.target}
                         </span>
                         {row.targetNote && (
-                          <span className="block truncate font-mono text-[11.33px] text-ink-gray">
+                          <span className="block font-mono text-[12.67px] leading-snug text-ink-gray">
                             {row.targetNote}
                           </span>
                         )}
                       </span>
 
                       <span
-                        className={`inline-flex items-center gap-1 justify-self-end rounded-full px-1.5 py-1 text-[11.33px] font-semibold sm:px-2 ${status.className}`}
+                        className={`inline-flex items-center gap-1 justify-self-end rounded-full px-1.5 py-1 text-[12.67px] font-semibold sm:px-2 ${status.className}`}
                         title={status.label}
                       >
                         <StatusIcon
@@ -318,7 +318,7 @@ function Mainframe() {
                         )}
                         {step.state === 'pending' && <Circle className="h-3 w-3" />}
                       </span>
-                      <span className="text-[11.33px] font-medium text-ink-gray">{step.label}</span>
+                      <span className="text-[12.67px] font-medium text-ink-gray">{step.label}</span>
                     </div>
                     {index < processSteps.length - 1 && (
                       <span className="mx-1 mb-4 h-px flex-1 bg-black/10" />
@@ -328,7 +328,7 @@ function Mainframe() {
               </div>
 
               <div className="mt-4">
-                <div className="mb-1.5 flex items-center justify-between text-xs-up">
+                <div className="mb-1.5 flex items-center justify-between text-[0.9167rem] leading-4">
                   <span className="font-medium text-ink-gray">Modernization Readiness</span>
                   <span className="font-heading font-bold text-primary">84%</span>
                 </div>
@@ -359,8 +359,8 @@ function Mainframe() {
                 <WandSparkles className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-xs-up text-ink-gray">AI-Assisted</p>
-                <p className="font-heading text-sm-up font-bold text-ink">Code Transformation</p>
+                <p className="text-[0.9167rem] leading-4 text-ink-gray">AI-Assisted</p>
+                <p className="font-heading text-[1.0417rem] leading-5 font-bold text-ink">Code Transformation</p>
               </div>
             </div>
           </motion.div>
@@ -380,8 +380,8 @@ function Mainframe() {
                 <ShieldCheck className="h-6 w-6" />
               </span>
               <div>
-                <p className="text-xs-up text-ink-gray">Business Logic</p>
-                <p className="font-heading text-sm-up font-bold text-ink">100% Preserved</p>
+                <p className="text-[0.9167rem] leading-4 text-ink-gray">Business Logic</p>
+                <p className="font-heading text-[1.0417rem] leading-5 font-bold text-ink">100% Preserved</p>
               </div>
             </div>
           </motion.div>
