@@ -104,9 +104,12 @@ function Mainframe() {
             animate="visible"
             variants={fadeUp}
             custom={1}
-            className="text-gradient text-4xl font-bold leading-[1.1] md:text-5xl lg:text-6xl"
+            className="text-4xl font-bold leading-[1.1] text-ink md:text-5xl lg:text-6xl"
           >
-            Modernize Legacy Applications with AI-Powered Transformation
+            Modernize Legacy Applications with{' '}
+            <span className="text-gradient">
+              <span className="whitespace-nowrap">AI-Powered</span> Transformation
+            </span>
           </motion.h1>
 
           <motion.div

@@ -378,7 +378,7 @@ function Contact() {
                   <CheckCircle2 className="h-9 w-9" />
                 </span>
                 <h3 id="success-title" className="mt-5 text-2xl font-bold text-ink">
-                  Request Sent Successfully
+                  Request Sent <span className="text-gradient">Successfully</span>
                 </h3>
                 <p className="mt-2 text-ink-gray">
                   Thank you — a confirmation has been sent to your email, and our modernization
