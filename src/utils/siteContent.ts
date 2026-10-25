@@ -14,7 +14,6 @@ import {
   Layers,
   CloudCog,
   Workflow,
-  LockKeyhole,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -198,13 +197,9 @@ export const whyChooseUs: WhyChooseItem[] = [
   },
   {
     icon: ShieldCheck,
-    title: 'Risk Reduction',
-    description: 'Phased, well-tested migrations protect business continuity at every step.',
-  },
-  {
-    icon: LockKeyhole,
-    title: 'Secure & Compliant Cloud',
-    description: 'Microsoft Entra ID, Azure Key Vault and Defender for Cloud are built into every migration from day one.',
+    title: 'Risk Reduction & Secure Cloud',
+    description:
+      'Phased, well-tested migrations protect business continuity, with Microsoft Entra ID, Azure Key Vault and Defender for Cloud built in from day one.',
   },
   {
     icon: Layers,

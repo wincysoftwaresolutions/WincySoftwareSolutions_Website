@@ -86,3 +86,47 @@
     @apply absolute rounded-full opacity-60 blur-3xl;
   }
 }
+
+/* Why Choose Us hub: comets, card flares and core motion share one 4s timeline so they stay in sync */
+@keyframes trust-comet {
+  0% { stroke-dashoffset: 0.2; }
+  45%, 100% { stroke-dashoffset: -1; }
+}
+@keyframes trust-flow {
+  to { stroke-dashoffset: -20; }
+}
+@keyframes trust-flare {
+  0%, 42% { opacity: 0; }
+  50% { opacity: 1; }
+  78%, 100% { opacity: 0; }
+}
+@keyframes trust-icon-pop {
+  0%, 42% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  65%, 100% { transform: scale(1); }
+}
+@keyframes trust-path-glow {
+  0%, 30% { opacity: 0; }
+  46% { opacity: 0.55; }
+  70%, 100% { opacity: 0; }
+}
+@keyframes trust-line-dot {
+  0% { top: 0; opacity: 0; }
+  5% { opacity: 1; }
+  90% { top: 100%; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes trust-breathe {
+  0%, 100% { transform: scale(0.92); opacity: 0.55; }
+  50% { transform: scale(1.08); opacity: 0.9; }
+}
+@keyframes trust-shimmer {
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-anim,
+  .trust-anim * {
+    animation: none !important;
+  }
+}
