@@ -117,42 +117,84 @@ export interface StatItem {
 
 export const stats: StatItem[] = [
   { value: 10, suffix: '+', label: 'Applications Assessed' },
-  { value: 1, suffix: '+', label: 'Modernization Projects' },
+  { value: 3, suffix: '+', label: 'Modernization Projects' },
   { value: 5, suffix: '+', label: 'Enterprise Clients' },
   { value: 100, suffix: '%', label: 'Customer Satisfaction' },
 ]
+
+// Which modern-app illustration a project card shows (see ProjectVisual)
+export type ProjectVariant = 'dashboard' | 'services' | 'api' | 'web' | 'containers' | 'docs'
 
 export interface Project {
   category: string
   title: string
   description: string
-  image: string
+  legacy: string
+  targets: string[]
+  variant: ProjectVariant
+  href: string
 }
 
 export const projects: Project[] = [
   {
-    category: 'Cloud Migration',
-    title: 'Mainframe to Cloud Migration',
-    description: 'Migrated legacy COBOL applications into cloud-native services while maintaining business continuity.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=60',
+    category: 'VB6 Modernization',
+    title: 'VB6 Business App to Azure',
+    description:
+      'VB6 forms and COM components become a React front end on .NET 10 services hosted in Azure, with every business rule preserved.',
+    legacy: 'VB6 · Forms',
+    targets: ['React', '.NET 10', 'Azure'],
+    variant: 'dashboard',
+    href: '#vb6',
   },
   {
-    category: 'Application Modernization',
-    title: 'ERP Modernization',
-    description: 'Refactored an enterprise ERP platform into a scalable, service-oriented microservices architecture.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60',
+    category: 'Delphi Modernization',
+    title: 'Delphi Desktop to Cloud',
+    description:
+      'Delphi VCL screens and Pascal business logic move to a React web app backed by modern .NET microservices on Azure.',
+    legacy: 'Delphi · VCL',
+    targets: ['React', 'Modern .NET', 'Azure'],
+    variant: 'services',
+    href: '#delphi',
   },
   {
-    category: 'API Modernization',
-    title: 'Legacy API Transformation',
-    description: 'Built secure REST APIs on top of legacy business applications to enable modern digital integration.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=60',
+    category: 'PowerBuilder Modernization',
+    title: 'PowerBuilder to REST APIs',
+    description:
+      'DataWindows and embedded SQL are untangled into secure .NET 10 REST APIs, with a responsive React UI on top.',
+    legacy: 'PowerBuilder',
+    targets: ['React', '.NET 10', 'REST APIs'],
+    variant: 'api',
+    href: '#powerbuilder',
   },
   {
-    category: 'Documentation',
-    title: 'Automated Documentation',
-    description: 'Generated architecture diagrams, API references and business process docs directly from legacy code using AI.',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60',
+    category: 'Windows to Web',
+    title: 'Windows App to Web App',
+    description:
+      'WinForms and WPF desktop apps are rebuilt as browser-based React web apps, deployed cloud-native with no client installs.',
+    legacy: 'WinForms · WPF',
+    targets: ['React Web App', 'Cloud Native'],
+    variant: 'web',
+    href: '#windows-to-web',
+  },
+  {
+    category: '.NET Upgrade',
+    title: '.NET Framework to .NET 10',
+    description:
+      '.NET Framework 4.x applications are upgraded to .NET 10 for faster performance, long-term support and container-ready deployment.',
+    legacy: '.NET Framework 4.x',
+    targets: ['.NET 10', 'Containers'],
+    variant: 'containers',
+    href: '#dotnet',
+  },
+  {
+    category: 'AI Assessment',
+    title: 'AI Code Assessment & Documentation',
+    description:
+      'AI agents scan legacy code to map dependencies, extract business rules and generate architecture docs and test suites before migration.',
+    legacy: 'Legacy codebase',
+    targets: ['AI Agents', 'Docs', 'Test Suites'],
+    variant: 'docs',
+    href: '#contact',
   },
 ]
 

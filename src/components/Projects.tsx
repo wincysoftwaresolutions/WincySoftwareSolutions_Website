@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { projects } from '../utils/siteContent'
+import ProjectVisual from './ProjectVisual'
 
 function Projects() {
   return (
@@ -16,8 +17,8 @@ function Projects() {
           <span className="section-eyebrow">Our Work</span>
           <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">Featured Projects</h2>
           <p className="mt-4 text-[1.1333rem] leading-normal text-ink-gray">
-            A snapshot of the modernization engagements we&apos;ve delivered for enterprise
-            clients.
+            How we take each legacy stack from assessment to a modern, cloud-ready application on
+            Azure.
           </p>
         </motion.div>
 
@@ -31,14 +32,9 @@ function Projects() {
               transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
               className="card-surface group overflow-hidden hover:shadow-softLg"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs-up font-semibold text-primary-700 backdrop-blur">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <ProjectVisual legacy={project.legacy} targets={project.targets} variant={project.variant} />
+                <span className="absolute left-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-xs-up font-semibold text-primary-700 backdrop-blur">
                   {project.category}
                 </span>
               </div>
@@ -46,7 +42,7 @@ function Projects() {
                 <h3 className="text-xl font-medium leading-[1.4] text-ink">{project.title}</h3>
                 <p className="mt-2 text-[1.0333rem] leading-relaxed text-ink-gray">{project.description}</p>
                 <a
-                  href="#contact"
+                  href={project.href}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm-up font-semibold text-primary transition-colors hover:text-primary-700"
                 >
                   Read More
