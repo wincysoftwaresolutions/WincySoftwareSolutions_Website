@@ -9,7 +9,8 @@
   }
 
   body {
-    @apply bg-surface text-ink font-body text-base-up leading-normal antialiased;
+    @apply bg-surface text-ink font-body leading-normal antialiased;
+    font-size: 1.0833rem; /* 16px + 1pt */
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -68,7 +69,7 @@
 
   .section-eyebrow {
     @apply mb-3 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5
-      text-xs-up font-semibold uppercase tracking-[0.05em] text-primary-600;
+      text-[0.8333rem] font-semibold uppercase leading-4 tracking-[0.05em] text-primary-600;
   }
 
   .card-surface {
