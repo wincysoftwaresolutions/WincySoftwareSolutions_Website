@@ -125,7 +125,7 @@ function Navbar() {
           <li key={link.label} className="relative">
             <button
               type="button"
-              className={`group relative flex items-center gap-1 whitespace-nowrap rounded-full px-4 py-2 text-[1.0333rem] font-medium ${
+              className={`group relative flex items-center gap-1 whitespace-nowrap rounded-full px-4 py-2 text-[1.1167rem] font-medium ${
                 openDropdown === link.label || activeHref === link.href ? 'text-primary' : 'text-ink-gray'
               }`}
               aria-haspopup="true"
@@ -189,7 +189,7 @@ function Navbar() {
             <a
               href={link.href}
               onClick={() => setActiveHref(link.href)}
-              className={`group relative whitespace-nowrap rounded-full px-4 py-2 text-[1.0333rem] font-medium ${
+              className={`group relative whitespace-nowrap rounded-full px-4 py-2 text-[1.1167rem] font-medium ${
                 activeHref === link.href ? 'text-primary' : 'text-ink-gray'
               }`}
               aria-current={activeHref === link.href ? 'page' : undefined}
