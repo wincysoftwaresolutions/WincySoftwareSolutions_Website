@@ -55,12 +55,22 @@ function Testimonials() {
     setIndex((prev) => (prev - 1 + total) % total)
   }, [total])
 
-  // One timeout per slide: restarts on every index change (auto or manual), so the interval is
-  // consistent, resets after manual navigation and can never stack up duplicate timers.
+  // Time left on the current slide. A new slide (auto or manual) gets the full interval; a pause
+  // keeps the remainder so the countdown resumes where it stopped, in step with the progress dot.
+  const remainingRef = useRef(AUTO_ADVANCE_MS)
+  useEffect(() => {
+    remainingRef.current = AUTO_ADVANCE_MS
+  }, [index])
+
+  // One timeout at a time, recreated on every slide change or resume, so timers never stack up
   useEffect(() => {
     if (paused) return
-    const timer = window.setTimeout(next, AUTO_ADVANCE_MS)
-    return () => window.clearTimeout(timer)
+    const startedAt = performance.now()
+    const timer = window.setTimeout(next, remainingRef.current)
+    return () => {
+      window.clearTimeout(timer)
+      remainingRef.current = Math.max(0, remainingRef.current - (performance.now() - startedAt))
+    }
   }, [index, paused, next])
 
   useEffect(() => {
@@ -111,9 +121,6 @@ function Testimonials() {
 
           <div
             className="relative mt-14"
-            // Hover pause is mouse-only: touch taps fire enter without a matching leave
-            onPointerEnter={(e) => e.pointerType === 'mouse' && setHovered(true)}
-            onPointerLeave={(e) => e.pointerType === 'mouse' && setHovered(false)}
             onPointerDown={() => setPressing(true)}
             // Pause for keyboard focus only; focus left on a button after a mouse click shouldn't freeze it
             onFocus={(e) => setKeyboardFocused(e.target.matches(':focus-visible'))}
@@ -162,6 +169,10 @@ function Testimonials() {
                     }
                     style={{ zIndex: isCenter ? 10 : isVisible ? 5 : 0 }}
                     onClick={!isCenter && isVisible ? (offset > 0 ? next : prev) : undefined}
+                    // Hover pause covers only the card being read (mouse only; touch has no matching leave),
+                    // so a cursor resting on a side card or empty space doesn't stop the rotation
+                    onPointerMove={(e) => e.pointerType === 'mouse' && setHovered(isCenter)}
+                    onPointerLeave={(e) => e.pointerType === 'mouse' && setHovered(false)}
                     aria-hidden={!isCenter}
                     aria-live={isCenter ? 'polite' : undefined}
                     className={`absolute inset-y-6 left-0 right-0 mx-auto w-[min(26rem,82vw)] will-change-transform ${
@@ -215,7 +226,11 @@ function Testimonials() {
               })}
             </div>
 
-            <div className="mt-4 flex items-center justify-center gap-4">
+            <div
+              className="mx-auto mt-4 flex w-fit items-center justify-center gap-4"
+              onPointerEnter={(e) => e.pointerType === 'mouse' && setHovered(true)}
+              onPointerLeave={(e) => e.pointerType === 'mouse' && setHovered(false)}
+            >
               <button
                 type="button"
                 onClick={prev}
@@ -233,10 +248,22 @@ function Testimonials() {
                     onClick={() => setIndex(i)}
                     aria-label={`Go to testimonial ${i + 1}`}
                     aria-current={i === index}
-                    className={`h-2.5 rounded-full transition-all duration-500 ${
-                      i === index ? 'w-7 bg-orange-gradient' : 'w-2.5 bg-primary-100 hover:bg-primary-300'
+                    className={`relative h-2.5 overflow-hidden rounded-full transition-all duration-500 ${
+                      i === index ? 'w-10 bg-primary-100' : 'w-2.5 bg-primary-100 hover:bg-primary-300'
                     }`}
-                  />
+                  >
+                    {i === index && (
+                      <span
+                        key={index}
+                        className="absolute inset-0 origin-left rounded-full bg-orange-gradient"
+                        style={{
+                          animation: `testi-progress ${AUTO_ADVANCE_MS}ms linear forwards`,
+                          animationPlayState: paused ? 'paused' : 'running',
+                        }}
+                        aria-hidden="true"
+                      />
+                    )}
+                  </button>
                 ))}
               </div>
 

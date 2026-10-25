@@ -155,3 +155,9 @@
     animation: none !important;
   }
 }
+
+/* Testimonials: active pagination dot fills over the auto-advance interval */
+@keyframes testi-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
