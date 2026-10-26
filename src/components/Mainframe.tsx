@@ -9,7 +9,7 @@ function Mainframe() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-orange-gradient-soft pb-14 pt-10 sm:pb-20 sm:pt-14 lg:pb-20 lg:pt-16"
+      className="relative overflow-hidden bg-orange-gradient-soft pb-10 pt-6 sm:pb-12 sm:pt-8 lg:pb-12 lg:pt-10"
     >
       <div
         className="bg-blob -left-24 -top-24 h-72 w-72 bg-primary-200 animate-blob"
@@ -82,7 +82,7 @@ function Mainframe() {
             animate="visible"
             variants={fadeUp}
             custom={4}
-            className="mt-7 flex flex-wrap items-center gap-4"
+            className="mt-6 flex flex-wrap items-center gap-4"
           >
             <a href="#contact" className="btn-primary">
               Start Modernization
@@ -99,7 +99,7 @@ function Mainframe() {
             animate="visible"
             variants={fadeUp}
             custom={5}
-            className="mt-9 flex items-center gap-8"
+            className="mt-7 flex items-center gap-8"
           >
             <div>
               <p className="font-heading text-2xl-up font-bold text-ink">10+</p>

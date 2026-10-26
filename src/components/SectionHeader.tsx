@@ -27,12 +27,12 @@ function SectionHeader({ eyebrow, title, subtitle, underline = false }: SectionH
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
-          className="mx-auto mt-5 block h-1 w-16 rounded-full bg-orange-gradient"
+          className="mx-auto mt-3 block h-1 w-16 rounded-full bg-orange-gradient"
           aria-hidden="true"
         />
       )}
       {subtitle && (
-        <p className={`${underline ? 'mt-5' : 'mt-4'} text-[1.1333rem] leading-normal text-ink-gray`}>{subtitle}</p>
+        <p className={`${underline ? 'mt-3' : 'mt-2'} text-[1.1333rem] leading-normal text-ink-gray`}>{subtitle}</p>
       )}
     </motion.div>
   )

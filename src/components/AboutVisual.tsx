@@ -105,7 +105,7 @@ function AboutVisual() {
       transition={{ duration: 0.8, ease: 'easeOut' }}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className="relative mx-auto aspect-square w-full max-w-xs sm:max-w-sm lg:max-w-md"
+      className="relative mx-auto aspect-square w-full max-w-[16rem] sm:max-w-xs lg:max-w-md"
       role="img"
       aria-label="Animated network globe representing connected, modernized systems"
     >

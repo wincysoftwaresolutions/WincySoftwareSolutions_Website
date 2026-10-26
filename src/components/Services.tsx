@@ -16,7 +16,7 @@ function Services() {
           subtitle="End-to-end modernization services that take legacy systems from assessment to cloud-ready transformation."
         />
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-8 lg:grid-cols-3 lg:gap-6">
           {services.map((service, index) => {
             const Icon = service.icon
             return (

@@ -46,7 +46,7 @@
   }
 
   .section-padding {
-    @apply py-12 sm:py-16 lg:py-20;
+    @apply py-8 sm:py-10 lg:py-12;
   }
 
   .btn-primary {
@@ -67,9 +67,10 @@
     @apply rounded-card border border-white/60 bg-white/70 backdrop-blur-xl shadow-glass;
   }
 
+  /* Section labels: bold, vivid brand pink (#D10070 is 4.8:1 on the primary-50 pill, WCAG AA) */
   .section-eyebrow {
-    @apply mb-3 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5
-      text-[0.8333rem] font-semibold uppercase leading-4 tracking-[0.05em] text-primary-600;
+    @apply mb-2 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5
+      text-[0.8333rem] font-bold uppercase leading-4 tracking-[0.05em] text-[#D10070];
   }
 
   .card-surface {

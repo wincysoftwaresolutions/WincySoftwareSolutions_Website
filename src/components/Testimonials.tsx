@@ -121,7 +121,7 @@ function Testimonials() {
           />
 
           <div
-            className="relative mt-8 lg:mt-10"
+            className="relative mt-4 lg:mt-6"
             onPointerDown={() => setPressing(true)}
             // Pause for keyboard focus only; focus left on a button after a mouse click shouldn't freeze it
             onFocus={(e) => setKeyboardFocused(e.target.matches(':focus-visible'))}

@@ -112,7 +112,7 @@ function TechStack() {
             })}
           </motion.div>
 
-          <div className="mt-8 lg:mt-10">
+          <div className="mt-6 lg:mt-8">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={tech.id}
@@ -123,7 +123,7 @@ function TechStack() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12"
+                className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-10"
               >
                 <motion.div variants={fromLeft}>
                   <span className="section-eyebrow">Tech Stack</span>
@@ -132,9 +132,9 @@ function TechStack() {
                     {tech.title.slice(0, tech.title.lastIndexOf(' ') + 1)}
                     <span className="text-gradient">{tech.title.slice(tech.title.lastIndexOf(' ') + 1)}</span>
                   </h2>
-                  <p className="mt-5 text-[1.1833rem] leading-[1.7] text-ink-gray">{tech.description}</p>
+                  <p className="mt-4 text-[1.1833rem] leading-[1.7] text-ink-gray">{tech.description}</p>
 
-                  <ul className="mt-6 space-y-3">
+                  <ul className="mt-4 space-y-3">
                     {tech.points.map((point, i) => (
                       <motion.li
                         key={point}

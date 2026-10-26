@@ -23,7 +23,7 @@ function About() {
   return (
     <section id="about" className="section-padding relative overflow-hidden bg-surface-light">
       <div className="container-app">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-12">
+        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
             <motion.span variants={fadeUp} custom={0} className="section-eyebrow">
               About Us
@@ -36,11 +36,11 @@ function About() {
                 hidden: { scaleX: 0 },
                 visible: { scaleX: 1, transition: { duration: 0.6, delay: 0.35, ease: 'easeOut' } },
               }}
-              className="mt-5 block h-1 w-16 origin-left rounded-full bg-orange-gradient"
+              className="mt-3 block h-1 w-16 origin-left rounded-full bg-orange-gradient"
               aria-hidden="true"
             />
 
-            <motion.p variants={fadeUp} custom={2} className="mt-6 text-[1.1833rem] leading-[1.7] text-ink-gray">
+            <motion.p variants={fadeUp} custom={2} className="mt-4 text-[1.1833rem] leading-[1.7] text-ink-gray">
               Wincy Software Solutions was founded on a simple belief: legacy applications hold years
               of proven business logic, and modernizing them shouldn&apos;t mean starting over. We are
               a team of engineers and modernization specialists who combine AI agents with deep
@@ -48,7 +48,7 @@ function About() {
               React, .NET 10 and Azure, without disrupting the business.
             </motion.p>
 
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-8">
+            <div className="mt-6 grid gap-5 sm:grid-cols-2 sm:gap-8">
               {pillars.map((pillar, index) => {
                 const Icon = pillar.icon
                 return (
@@ -75,7 +75,7 @@ function About() {
           <AboutVisual />
         </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-8 lg:grid-cols-4">
           {aboutFeatures.map((feature, index) => {
             const Icon = feature.icon
             return (

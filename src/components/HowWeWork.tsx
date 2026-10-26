@@ -40,7 +40,7 @@ function HowWeWork() {
           subtitle="A transparent, iterative process designed to deliver working, modernized software fast, and evolve it intelligently over time."
         />
 
-        <ol className="relative mx-auto mt-10 grid max-w-2xl gap-8 lg:mt-12 lg:max-w-none lg:grid-cols-4 lg:gap-8">
+        <ol className="relative mx-auto mt-6 grid max-w-2xl gap-6 lg:mt-8 lg:max-w-none lg:grid-cols-4 lg:gap-8">
           {steps.map((step, index) => {
             const isLast = index === steps.length - 1
             return (
@@ -79,7 +79,7 @@ function HowWeWork() {
                       <span className="absolute -right-1 -top-[3px] h-[7px] w-[7px] rounded-full bg-primary-300" />
                     </span>
                     <motion.span
-                      className="absolute left-8 top-[4.75rem] -bottom-6 w-px origin-top bg-orange-gradient lg:hidden"
+                      className="absolute left-8 top-[4.75rem] -bottom-4 w-px origin-top bg-orange-gradient lg:hidden"
                       initial={{ scaleY: 0 }}
                       whileInView={{ scaleY: 1 }}
                       viewport={{ once: true }}
@@ -103,7 +103,7 @@ function HowWeWork() {
                   </span>
                 </div>
 
-                <div className="pt-2 transition-transform duration-300 group-hover:-translate-y-1 lg:mt-6 lg:max-w-[18rem] lg:pt-0">
+                <div className="pt-2 transition-transform duration-300 group-hover:-translate-y-1 lg:mt-4 lg:max-w-[18rem] lg:pt-0">
                   <h3 className="text-xl font-semibold text-ink transition-colors duration-300 group-hover:text-primary">
                     {step.title}
                   </h3>

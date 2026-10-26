@@ -128,7 +128,7 @@ function Contact() {
           subtitle="Connect with our modernization specialists to evaluate your existing systems and build a transformation roadmap tailored to your business."
         />
 
-        <div className="mt-10 grid grid-cols-1 gap-6 lg:mt-12 lg:grid-cols-5 lg:gap-8">
+        <div className="mt-6 grid grid-cols-1 gap-5 lg:mt-8 lg:grid-cols-5 lg:gap-6">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}

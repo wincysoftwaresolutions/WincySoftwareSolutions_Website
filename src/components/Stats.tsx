@@ -30,7 +30,7 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
 
 function Stats() {
   return (
-    <section id="achievements" className="relative overflow-hidden bg-orange-gradient py-10 sm:py-14">
+    <section id="achievements" className="relative overflow-hidden bg-orange-gradient py-8 sm:py-10">
       <div className="bg-blob -left-10 -top-10 h-56 w-56 bg-white/10" aria-hidden="true" />
       <div className="bg-blob -right-10 bottom-0 h-56 w-56 bg-white/10" aria-hidden="true" />
       <div className="container-app relative grid grid-cols-2 gap-8 sm:grid-cols-4">
