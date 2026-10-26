@@ -121,7 +121,7 @@ function Testimonials() {
           />
 
           <div
-            className="relative mt-14"
+            className="relative mt-8 lg:mt-10"
             onPointerDown={() => setPressing(true)}
             // Pause for keyboard focus only; focus left on a button after a mouse click shouldn't freeze it
             onFocus={(e) => setKeyboardFocused(e.target.matches(':focus-visible'))}
@@ -134,7 +134,7 @@ function Testimonials() {
             aria-label="Client testimonials"
           >
             {/* Stage: no overflow clipping, so side cards and their shadows show fully */}
-            <div className="relative mx-auto h-[480px] w-full max-w-6xl py-6 sm:h-[420px]">
+            <div className="relative mx-auto h-[460px] w-full max-w-6xl py-6 sm:h-[390px]">
               {testimonials.map((testimonial, i) => {
                 const offset = getOffset(i, index)
                 const prevOffset = getOffset(i, prevIndexRef.current)

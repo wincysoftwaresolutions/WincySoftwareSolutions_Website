@@ -112,7 +112,7 @@ function TechStack() {
             })}
           </motion.div>
 
-          <div className="mt-12 lg:mt-14">
+          <div className="mt-8 lg:mt-10">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={tech.id}
@@ -123,7 +123,7 @@ function TechStack() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
+                className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12"
               >
                 <motion.div variants={fromLeft}>
                   <span className="section-eyebrow">Tech Stack</span>
@@ -151,7 +151,7 @@ function TechStack() {
                 </motion.div>
 
                 <motion.div variants={fromRight}>
-                  <div className="card-surface p-8 sm:p-10">
+                  <div className="card-surface p-6 sm:p-8">
                     <motion.span
                       initial={{ scale: 0.6, rotate: -12, opacity: 0 }}
                       animate={{ scale: 1, rotate: 0, opacity: 1 }}

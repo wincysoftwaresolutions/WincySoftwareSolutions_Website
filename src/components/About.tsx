@@ -23,7 +23,7 @@ function About() {
   return (
     <section id="about" className="section-padding relative overflow-hidden bg-surface-light">
       <div className="container-app">
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-12">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
             <motion.span variants={fadeUp} custom={0} className="section-eyebrow">
               About Us
@@ -48,7 +48,7 @@ function About() {
               React, .NET 10 and Azure, without disrupting the business.
             </motion.p>
 
-            <div className="mt-10 grid gap-8 sm:grid-cols-2">
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-8">
               {pillars.map((pillar, index) => {
                 const Icon = pillar.icon
                 return (
@@ -75,7 +75,7 @@ function About() {
           <AboutVisual />
         </div>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
           {aboutFeatures.map((feature, index) => {
             const Icon = feature.icon
             return (

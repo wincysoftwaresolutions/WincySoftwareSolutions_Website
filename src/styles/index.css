@@ -42,11 +42,11 @@
 
 @layer components {
   .container-app {
-    @apply mx-auto w-full max-w-[112rem] px-5 sm:px-8;
+    @apply mx-auto w-full max-w-[112rem] px-4 sm:px-6 lg:px-8;
   }
 
   .section-padding {
-    @apply py-16 sm:py-20 lg:py-28;
+    @apply py-12 sm:py-16 lg:py-20;
   }
 
   .btn-primary {

@@ -30,10 +30,10 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
 
 function Stats() {
   return (
-    <section id="achievements" className="relative overflow-hidden bg-orange-gradient py-16 sm:py-20">
+    <section id="achievements" className="relative overflow-hidden bg-orange-gradient py-10 sm:py-14">
       <div className="bg-blob -left-10 -top-10 h-56 w-56 bg-white/10" aria-hidden="true" />
       <div className="bg-blob -right-10 bottom-0 h-56 w-56 bg-white/10" aria-hidden="true" />
-      <div className="container-app relative grid grid-cols-2 gap-10 sm:grid-cols-4">
+      <div className="container-app relative grid grid-cols-2 gap-8 sm:grid-cols-4">
         {stats.map((stat, index) => (
           <StatCard key={stat.label} stat={stat} index={index} />
         ))}

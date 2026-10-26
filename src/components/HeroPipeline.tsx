@@ -237,7 +237,7 @@ function HeroPipeline() {
       transition={{ duration: 0.7, ease: 'easeOut' }}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
-      className="hero-anim relative mx-auto w-full max-w-md pb-10 pt-12 sm:max-w-lg sm:pb-14 sm:pt-14 lg:mr-0 lg:max-w-[36rem]"
+      className="hero-anim relative mx-auto w-full max-w-md pb-10 pt-10 sm:max-w-lg sm:pb-12 sm:pt-12 lg:mr-0 lg:max-w-[36rem]"
     >
       <div className="absolute inset-x-8 top-4 h-3/4 rounded-[3rem] bg-primary-200/50 opacity-70 blur-3xl" aria-hidden="true" />
 

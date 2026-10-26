@@ -128,7 +128,7 @@ function Contact() {
           subtitle="Connect with our modernization specialists to evaluate your existing systems and build a transformation roadmap tailored to your business."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-5">
+        <div className="mt-10 grid grid-cols-1 gap-6 lg:mt-12 lg:grid-cols-5 lg:gap-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -136,7 +136,7 @@ function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <div className="card-surface flex h-full flex-col gap-8 p-8">
+            <div className="card-surface flex h-full flex-col gap-6 p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-primary">
                   <MapPin className="h-5 w-5" />
@@ -207,7 +207,7 @@ function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <form onSubmit={handleSubmit} className="card-surface space-y-5 p-8" noValidate>
+            <form onSubmit={handleSubmit} className="card-surface space-y-4 p-6 sm:space-y-5 sm:p-8" noValidate>
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="mb-1.5 block text-sm-up font-medium text-ink">

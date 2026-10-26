@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 
 function CTA() {
   return (
-    <section className="relative overflow-hidden bg-orange-gradient py-16 sm:py-20">
+    <section className="relative overflow-hidden bg-orange-gradient py-12 sm:py-14">
       <div className="bg-blob -left-16 top-1/2 h-72 w-72 -translate-y-1/2 bg-white/10" aria-hidden="true" />
       <div className="bg-blob -right-16 top-1/2 h-72 w-72 -translate-y-1/2 bg-white/10" aria-hidden="true" />
 
@@ -12,7 +12,7 @@ function CTA() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.6 }}
-        className="container-app relative flex flex-col items-center gap-6 text-center"
+        className="container-app relative flex flex-col items-center gap-5 text-center"
       >
         <h2 className="max-w-2xl text-3xl font-bold text-white sm:text-4xl">
           Ready to Modernize Your Legacy Applications?

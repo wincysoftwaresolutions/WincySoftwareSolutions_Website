@@ -14,7 +14,7 @@ function Footer() {
 
   return (
     <footer className="bg-ink text-white/85">
-      <div className="container-app grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-[1.6fr_1fr_1fr_1fr]">
+      <div className="container-app grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div>
           {/* Logo sits beside the heading; on 2xl it spans heading + text and is vertically centred on both */}
           <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 2xl:gap-x-6">

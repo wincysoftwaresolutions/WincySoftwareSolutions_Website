@@ -16,7 +16,7 @@ function Services() {
           subtitle="End-to-end modernization services that take legacy systems from assessment to cloud-ready transformation."
         />
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-6">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -27,7 +27,7 @@ function Services() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="card-surface group p-8 hover:border-primary-100 hover:shadow-softLg"
+                className="card-surface group p-6 hover:border-primary-100 sm:p-7 hover:shadow-softLg"
               >
                 <span className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-50 text-primary transition-colors duration-300 group-hover:bg-orange-gradient group-hover:text-white">
                   <Icon className="h-7 w-7" strokeWidth={2} />

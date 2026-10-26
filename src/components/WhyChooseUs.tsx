@@ -244,7 +244,7 @@ function WhyChooseUs() {
 
           {isDesktop ? (
             // Desktop: hub-and-spoke — four cards each side of the core
-            <div ref={hubRef} className={`trust-anim relative mt-16 ${playState}`}>
+            <div ref={hubRef} className={`trust-anim relative mt-12 ${playState}`}>
               <svg className="pointer-events-none absolute left-0 top-0 overflow-visible" width={size.w} height={size.h} aria-hidden="true">
                 <defs>
                   <linearGradient id="trust-comet-grad" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="0">
@@ -320,7 +320,7 @@ function WhyChooseUs() {
             </div>
           ) : (
             // Tablet / mobile: core on top, cards stacked along a connecting line
-            <div ref={hubRef} className={`trust-anim mt-12 ${playState}`}>
+            <div ref={hubRef} className={`trust-anim mt-10 ${playState}`}>
               <div className="flex justify-center">
                 <Core compact />
               </div>
