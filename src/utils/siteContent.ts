@@ -210,7 +210,7 @@ export const whyChooseUs: WhyChooseItem[] = [
 
 export const contactInfo = {
   address: 'Chennai, Tamil Nadu, India',
-  phone: '+91 994 156 0814',
+  phone: '+91 99415 60814',
   email: 'wincysoftwaresolutions@gmail.com',
 }
 
