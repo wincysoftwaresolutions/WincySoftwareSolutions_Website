@@ -1,13 +1,7 @@
 import FooterLogo from './FooterLogo'
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { contactInfo, navLinks, services, socialLinks } from '../utils/siteContent'
-
-const socialIcons = {
-  Facebook,
-  Instagram,
-  LinkedIn: Linkedin,
-  Twitter,
-} as const
+import { externalLinkProps } from '../utils/links'
 
 function Footer() {
   const year = new Date().getFullYear()
@@ -32,21 +26,17 @@ function Footer() {
           </div>
           {/* 2xl: indent past the logo (178px) + gap (24px) so the icons line up with the text */}
           <div className="mt-6 flex gap-3 2xl:ml-[202px]">
-            {socialLinks.map((social) => {
-              const Icon = socialIcons[social.label as keyof typeof socialIcons]
-              return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-primary hover:bg-primary hover:text-white"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              )
-            })}
+            {socialLinks.map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                {...externalLinkProps(href)}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
           </div>
         </div>
 

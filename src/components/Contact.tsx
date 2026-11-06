@@ -1,28 +1,10 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  CheckCircle2,
-  AlertCircle,
-  Loader2,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-} from 'lucide-react'
+import { Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, Loader2, type LucideIcon } from 'lucide-react'
 import { contactInfo, socialLinks } from '../utils/siteContent'
+import { externalLinkProps } from '../utils/links'
 import SectionHeader from './SectionHeader'
-
-const socialIcons = {
-  Facebook,
-  Instagram,
-  LinkedIn: Linkedin,
-  Twitter,
-} as const
 
 interface FormState {
   name: string
@@ -34,13 +16,56 @@ interface FormState {
 
 const initialState: FormState = { name: '', email: '', phone: '', message: '', _gotcha: '' }
 
-// Google Apps Script web app URL, read from .env.local (VITE_SHEETS_URL).
+// Google Apps Script web app URL, read from .env / .env.local (VITE_SHEETS_URL)
 const FORM_ENDPOINT: string | undefined = import.meta.env.VITE_SHEETS_URL
+
+// Give up on a stalled request so the button never spins forever
+const SUBMIT_TIMEOUT_MS = 15000
 
 // Basic format check: something@something.tld (no spaces, commas or extra @).
 const EMAIL_PATTERN = /^[^\s@,;<>]+@[^\s@,;<>]+\.[A-Za-z]{2,}$/
 
 type Status = 'idle' | 'submitting' | 'success' | 'error' | 'invalid' | 'badEmail' | 'mailFailed'
+
+const STATUS_ID = 'contact-form-status'
+
+const inputClass =
+  'w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm-up text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100 aria-[invalid=true]:border-red-400'
+
+const mailLink = (
+  <a href={`mailto:${contactInfo.email}`} className="underline">
+    {contactInfo.email}
+  </a>
+)
+
+function FormAlert({ children }: { children: ReactNode }) {
+  return (
+    <motion.p
+      id={STATUS_ID}
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      role="alert"
+      className="flex items-start gap-2 text-sm-up font-medium text-red-600"
+    >
+      <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
+      <span>{children}</span>
+    </motion.p>
+  )
+}
+
+function ContactRow({ icon: Icon, label, children }: { icon: LucideIcon; label: string; children: ReactNode }) {
+  return (
+    <div className="flex items-start gap-4">
+      <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-primary">
+        <Icon className="h-5 w-5" />
+      </span>
+      <div className="min-w-0">
+        <p className="font-heading font-semibold text-ink">{label}</p>
+        {children}
+      </div>
+    </div>
+  )
+}
 
 function Contact() {
   const [form, setForm] = useState<FormState>(initialState)
@@ -78,12 +103,14 @@ function Contact() {
     }
 
     if (!FORM_ENDPOINT) {
-      console.error('VITE_SHEETS_URL is not set. Add it to .env.local and restart the dev server.')
+      console.error('VITE_SHEETS_URL is not set. Add it to your .env file and restart the dev server.')
       setStatus('error')
       return
     }
 
     setStatus('submitting')
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), SUBMIT_TIMEOUT_MS)
 
     try {
       // text/plain keeps this a "simple" request, so the browser doesn't
@@ -97,7 +124,9 @@ function Contact() {
           phone: form.phone,
           message: form.message,
         }),
+        signal: controller.signal,
       })
+      if (!response.ok) throw new Error(`HTTP ${response.status}`)
 
       const result = await response.json()
       if (result.result !== 'success') throw new Error('Script returned an error')
@@ -112,8 +141,19 @@ function Contact() {
     } catch (err) {
       console.error('Form submit failed:', err)
       setStatus('error')
+    } finally {
+      window.clearTimeout(timeout)
     }
   }
+
+  // Which fields to flag for assistive tech after a failed validation
+  const invalid = {
+    name: status === 'invalid' && !form.name.trim(),
+    email: (status === 'invalid' && !form.email.trim()) || status === 'badEmail',
+    message: status === 'invalid' && !form.message.trim(),
+  }
+  const fieldA11y = (field: keyof typeof invalid) =>
+    invalid[field] ? { 'aria-invalid': true, 'aria-describedby': STATUS_ID } : {}
 
   return (
     <section id="contact" className="section-padding bg-surface-light">
@@ -137,64 +177,40 @@ function Contact() {
             className="lg:col-span-2"
           >
             <div className="card-surface flex h-full flex-col gap-6 p-6 sm:p-8">
-              <div className="flex items-start gap-4">
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-primary">
-                  <MapPin className="h-5 w-5" />
-                </span>
-                <div>
-                  <p className="font-heading font-semibold text-ink">Address</p>
-                  <p className="mt-1 text-sm-up text-ink-gray">{contactInfo.address}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-primary">
-                  <Phone className="h-5 w-5" />
-                </span>
-                <div>
-                  <p className="font-heading font-semibold text-ink">Phone</p>
-                  <a
-                    href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
-                    className="mt-1 block text-sm-up text-ink-gray hover:text-primary"
-                  >
-                    {contactInfo.phone}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-primary">
-                  <Mail className="h-5 w-5" />
-                </span>
-                <div className="min-w-0">
-                  <p className="font-heading font-semibold text-ink">Email</p>
-                  <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="mt-1 block text-sm-up text-ink-gray [overflow-wrap:anywhere] hover:text-primary"
-                  >
-                    {contactInfo.email}
-                  </a>
-                </div>
-              </div>
+              <ContactRow icon={MapPin} label="Address">
+                <p className="mt-1 text-sm-up text-ink-gray">{contactInfo.address}</p>
+              </ContactRow>
+              <ContactRow icon={Phone} label="Phone">
+                <a
+                  href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
+                  className="mt-1 block text-sm-up text-ink-gray hover:text-primary"
+                >
+                  {contactInfo.phone}
+                </a>
+              </ContactRow>
+              <ContactRow icon={Mail} label="Email">
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="mt-1 block text-sm-up text-ink-gray [overflow-wrap:anywhere] hover:text-primary"
+                >
+                  {contactInfo.email}
+                </a>
+              </ContactRow>
 
               <div className="mt-auto">
                 <p className="font-heading text-sm-up font-semibold text-ink">Follow Us</p>
                 <div className="mt-3 flex gap-3">
-                  {socialLinks.map((social) => {
-                    const Icon = socialIcons[social.label as keyof typeof socialIcons]
-                    return (
-                      <a
-                        key={social.label}
-                        href={social.href}
-                        aria-label={social.label}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-100 text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white"
-                      >
-                        <Icon className="h-4 w-4" />
-                      </a>
-                    )
-                  })}
+                  {socialLinks.map(({ label, href, icon: Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      aria-label={label}
+                      {...externalLinkProps(href)}
+                      className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-100 text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -221,8 +237,9 @@ function Contact() {
                     required
                     value={form.name}
                     onChange={handleChange('name')}
-                    className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm-up text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
+                    className={inputClass}
                     placeholder="Your full name"
+                    {...fieldA11y('name')}
                   />
                 </div>
                 <div>
@@ -237,8 +254,9 @@ function Contact() {
                     required
                     value={form.email}
                     onChange={handleChange('email')}
-                    className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm-up text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
+                    className={inputClass}
                     placeholder="you@company.com"
+                    {...fieldA11y('email')}
                   />
                 </div>
               </div>
@@ -254,7 +272,7 @@ function Contact() {
                   autoComplete="tel"
                   value={form.phone}
                   onChange={handleChange('phone')}
-                  className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm-up text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
+                  className={inputClass}
                   placeholder="+91 00000 00000"
                 />
               </div>
@@ -271,8 +289,9 @@ function Contact() {
                   rows={5}
                   value={form.message}
                   onChange={handleChange('message')}
-                  className="w-full resize-none rounded-xl border border-black/10 bg-white px-4 py-3 text-sm-up text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary-100"
+                  className={`${inputClass} resize-none`}
                   placeholder="Tell us about the systems you're looking to modernize..."
+                  {...fieldA11y('message')}
                 />
               </div>
 
@@ -301,48 +320,16 @@ function Contact() {
                 )}
               </button>
 
-              {status === 'invalid' && (
-                <p role="alert" className="flex items-center gap-2 text-sm-up font-medium text-red-600">
-                  <AlertCircle className="h-4 w-4" />
-                  Please fill in your name, email and message.
-                </p>
-              )}
-
-              {status === 'badEmail' && (
-                <p role="alert" className="flex items-center gap-2 text-sm-up font-medium text-red-600">
-                  <AlertCircle className="h-4 w-4" />
-                  Please enter a valid email address.
-                </p>
-              )}
-
+              {status === 'invalid' && <FormAlert>Please fill in your name, email and message.</FormAlert>}
+              {status === 'badEmail' && <FormAlert>Please enter a valid email address.</FormAlert>}
               {status === 'mailFailed' && (
-                <p role="alert" className="flex items-start gap-2 text-sm-up font-medium text-red-600">
-                  <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
-                  <span>
-                    The mail could not be sent to this address. Kindly enter a valid email id and
-                    try again, or write to us at{' '}
-                    <a href={`mailto:${contactInfo.email}`} className="underline">
-                      {contactInfo.email}
-                    </a>
-                    .
-                  </span>
-                </p>
+                <FormAlert>
+                  The mail could not be sent to this address. Kindly enter a valid email id and try
+                  again, or write to us at {mailLink}.
+                </FormAlert>
               )}
-
               {status === 'error' && (
-                <motion.p
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  role="alert"
-                  className="flex items-center gap-2 text-sm-up font-medium text-red-600"
-                >
-                  <AlertCircle className="h-4 w-4" />
-                  Something went wrong — please email us directly at{' '}
-                  <a href={`mailto:${contactInfo.email}`} className="underline">
-                    {contactInfo.email}
-                  </a>
-                  .
-                </motion.p>
+                <FormAlert>Something went wrong — please email us directly at {mailLink}.</FormAlert>
               )}
             </form>
           </motion.div>
@@ -380,11 +367,8 @@ function Contact() {
                   Thank you — a confirmation has been sent to your email, and our modernization
                   specialists will be in touch shortly.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setStatus('idle')}
-                  className="btn-primary mt-7 w-full"
-                >
+                {/* Focus moves here so keyboard and screen-reader users land in the dialog */}
+                <button type="button" autoFocus onClick={() => setStatus('idle')} className="btn-primary mt-7 w-full">
                   Close
                 </button>
               </motion.div>

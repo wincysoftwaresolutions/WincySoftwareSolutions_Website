@@ -14,6 +14,10 @@ import {
   Layers,
   CloudCog,
   Workflow,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -217,11 +221,13 @@ export const contactInfo = {
 interface SocialLink {
   label: string
   href: string
+  icon: LucideIcon
 }
 
+// Replace '#' with the real profile URLs once they are ready
 export const socialLinks: SocialLink[] = [
-  { label: 'Facebook', href: '#' },
-  { label: 'Instagram', href: '#' },
-  { label: 'LinkedIn', href: '#' },
-  { label: 'Twitter', href: '#' },
+  { label: 'Facebook', href: '#', icon: Facebook },
+  { label: 'Instagram', href: '#', icon: Instagram },
+  { label: 'LinkedIn', href: '#', icon: Linkedin },
+  { label: 'Twitter', href: '#', icon: Twitter },
 ]
