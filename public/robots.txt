@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.wincysoftwaresolutions.com/sitemap.xml
+Sitemap: https://wincysoftwaresolutions.net/sitemap.xml

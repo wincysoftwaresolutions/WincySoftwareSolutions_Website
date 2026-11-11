@@ -6,7 +6,7 @@ interface SEOProps {
   path?: string
 }
 
-const SITE_URL = 'https://www.wincysoftwaresolutions.com'
+const SITE_URL = 'https://wincysoftwaresolutions.net'
 const SITE_NAME = 'Wincy Software Solutions'
 
 function SEO({
