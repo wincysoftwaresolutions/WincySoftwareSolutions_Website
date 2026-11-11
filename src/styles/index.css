@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-    html {
+  html {
+    /* Render the whole site at 75% of its designed size */
+    zoom: 0.75;
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-h, 0px);
   }
@@ -42,7 +44,7 @@
 
 @layer components {
   .container-app {
-    @apply mx-auto w-full max-w-[112rem] px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-[149.333rem] px-4 sm:px-6 lg:px-8; /* 112rem ÷ 0.75 zoom */
   }
 
   .section-padding {

@@ -139,7 +139,7 @@ function Navbar() {
     >
       <nav
         ref={navRef}
-        className="mx-auto flex w-full max-w-[112rem] items-center justify-between gap-4 px-3 py-2 sm:px-5 sm:py-3 xl:grid xl:grid-cols-[1fr_auto_1fr] xl:px-8"
+        className="mx-auto flex w-full max-w-[149.333rem] items-center justify-between gap-4 px-3 py-2 sm:px-5 sm:py-3 xl:grid xl:grid-cols-[1fr_auto_1fr] xl:px-8"
         aria-label="Primary"
       >
         {/* Left: logo */}
