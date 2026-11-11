@@ -228,6 +228,6 @@ interface SocialLink {
 export const socialLinks: SocialLink[] = [
   { label: 'Facebook', href: '#', icon: Facebook },
   { label: 'Instagram', href: '#', icon: Instagram },
-  { label: 'LinkedIn', href: '#', icon: Linkedin },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/wincy-software-solutions/home/', icon: Linkedin },
   { label: 'Twitter', href: '#', icon: Twitter },
 ]
